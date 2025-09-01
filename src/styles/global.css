@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-satoshi: var(--font-satoshi);
+}
+
+@layer base {
+  html {
+    @apply bg-neutral-50;
+  }
+  body,
+  .font-sans {
+    /* ss01: single-storey 'a' to match logo */
+    /* ss06: single-storey 'g' */
+    font-feature-settings: "ss01", "ss06";
+  }
+  .font-satoshi {
+    /* ss01: single-storey 'a' to match logo */
+    /* ss03: 't' with tail */
+    font-feature-settings: "ss01", "ss03";
+  }
+
+  body > * {
+    /* set per-element, because letter-spacing uses em units */
+    @apply tracking-tight;
+  }
+}
+
+@utility bg-dots {
+  background-image: url("/patterns/dots.svg");
+}

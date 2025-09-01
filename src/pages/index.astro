@@ -1,11 +1,140 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+
+import Logo from "~/assets/logo/youthacks-logo.svg";
+import TogetherDoodle from "~/assets/scribbles/index-together.svg";
+
+import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
+
+import daydreamBanner from "~/assets/images/daydream/banner.png";
+import daydreamLogo from "~/assets/images/daydream/temp-logo.png";
 ---
 
 <Layout>
-	<Welcome />
+  <div class="bg-dots bg-red-200">
+    <nav class="flex items-center px-8 pt-8">
+      <Logo class="h-8 w-auto" />
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-2.5">
+        <span class="font-semibold">Events</span>
+        <span class="text-black/50">&middot;</span>
+        <span class="font-semibold">Support us</span>
+        <span class="text-black/50">&middot;</span>
+        <span class="font-semibold">Contact</span>
+      </div>
+    </nav>
+    <header class="p-8 py-16 text-center">
+      <h1 class="font-satoshi text-8xl font-black tracking-tighter">
+        We are <span class="text-red-800">makers_</span>
+      </h1>
+      <p class="mx-auto mt-4 max-w-3xl text-2xl text-balance">
+        We support and run hackathons for teens, and create safe spaces where
+        young coders can thrive, <span class="relative font-semibold">
+          together.
+          <TogetherDoodle
+            class="absolute inset-x-0 -bottom-1.5 h-auto w-full"
+          />
+        </span>
+      </p>
+      <div class="mt-6 flex justify-center gap-4">
+        <button
+          class="flex h-12 items-center rounded-full bg-red-800 px-6 text-lg font-semibold text-white shadow-sm transition hover:bg-red-900"
+        >
+          Donate
+        </button>
+        <button
+          class="flex h-12 items-center rounded-full border-2 border-red-800 bg-red-200 px-6 text-lg font-semibold text-red-800 transition hover:bg-red-800 hover:text-white"
+        >
+          See our events
+        </button>
+      </div>
+    </header>
+    <div class="relative mx-auto h-96">
+      <Image
+        src={hero}
+        alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
+        class="h-full w-full object-cover object-center"
+      />
+      <div
+        class="absolute top-4 right-4 flex h-7 items-center rounded-full bg-black/80 px-4 text-white"
+      >
+        <span class="text-xs text-white">
+          Scrapyard Cambridge, at Raspberry Pi Foundation
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-7xl space-y-8 p-8">
+    <div
+      class="grid grid-cols-2 gap-8 rounded-xl border border-neutral-300 bg-white p-8 shadow-sm"
+    >
+      <h2 class="font-satoshi text-3xl font-bold">Our mission</h2>
+      <div class="text-xl leading-normal text-neutral-800">
+        <p>
+          Hackathons are social coding events, where people can get together,
+          make new friends, and work on amazing projects, no matter their skill
+          level. That’s what we’re all about.
+        </p>
+        <p class="mt-3">
+          Our purpose is to support student-led hackathons - where young coders
+          have a safe space to learn and thrive together. A space just for them,
+          run by them.
+        </p>
+        <p class="mt-3">Like the idea? We’d love your help.</p>
+        <div class="mt-1 flex items-center gap-4 text-xl">
+          <span class="font-semibold text-red-800">Volunteer</span>
+          <span class="font-semibold text-red-800">Support us</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
+      <div class="mt-6 space-y-6">
+        <div
+          class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+        >
+          <Image src={daydreamBanner} alt="" class="absolute inset-0 -z-10" />
+          <div
+            class="grid grid-cols-2 gap-8 bg-gradient-to-l from-[#C6E9FB] via-[#C6E9FB] p-8"
+          >
+            <div>
+              <Image src={daydreamLogo} alt="" class="h-auto max-w-full" />
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Daydream</h3>
+              <p class="mt-3 text-xl leading-normal text-neutral-800">
+                All-day game jams in London, Cambridge and Brighton. Work
+                together to make amazing games, alongside young people in 100+
+                cities worldwide.
+              </p>
+              <p class="mt-2 text-neutral-600">
+                27th-28th September 2025 · with Hack Club
+              </p>
+
+              <button
+                class="mt-4 flex h-10 items-center rounded-full bg-cyan-800 px-5 font-semibold text-white shadow-sm transition hover:bg-cyan-900"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-center">
+        <p class="text-xl font-semibold text-red-800">View past events</p>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-neutral-900 text-white">
+    <div class="mx-auto max-w-7xl p-8">
+      <Logo class="h-12 w-auto invert" />
+      <div class="text-right text-sm text-neutral-400 italic">
+        <p>© 2025 Youthacks. Registering for UK charity status.</p>
+        <p>Fiscally sponsored by Hack Club, a 501(c)(3) nonprofit in the US.</p>
+      </div>
+    </div>
+  </footer>
 </Layout>
