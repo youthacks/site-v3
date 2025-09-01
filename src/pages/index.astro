@@ -6,6 +6,7 @@ import Layout from "../layouts/Layout.astro";
 
 import Logo from "~/assets/logo/youthacks-logo.svg";
 import TogetherDoodle from "~/assets/scribbles/index-together.svg";
+import MissionDoodle from "~/assets/scribbles/index-mission.svg";
 
 import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
 
@@ -71,7 +72,14 @@ import daydreamLogo from "~/assets/images/daydream/temp-logo.png";
     <div
       class="grid grid-cols-2 gap-8 rounded-xl border border-neutral-300 bg-white p-8 shadow-sm"
     >
-      <h2 class="font-satoshi text-3xl font-bold">Our mission</h2>
+      <h2 class="font-satoshi text-3xl font-bold">
+        Our <span class="relative isolate">
+          mission
+          <span class="absolute -inset-x-1.5 -bottom-0.5 -z-10">
+            <MissionDoodle class="h-auto w-full" />
+          </span>
+        </span>
+      </h2>
       <div class="text-xl leading-normal text-neutral-800">
         <p>
           Hackathons are social coding events, where people can get together,
