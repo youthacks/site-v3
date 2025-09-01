@@ -1,0 +1,201 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+
+import Logo from "~/assets/logo/youthacks-logo.svg";
+import TitleDoodle from "~/assets/scribbles/events-title.svg";
+
+import daydreamBanner from "~/assets/images/daydream/banner.png";
+import daydreamLogo from "~/assets/images/daydream/temp-logo.png";
+
+import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
+import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
+
+import SiFacebook from "~/assets/icons/SiFacebook.svg";
+import SiX from "~/assets/icons/SiX.svg";
+import SiInstagram from "~/assets/icons/SiInstagram.svg";
+import SiTiktok from "~/assets/icons/SiTiktok.svg";
+import SiGithub from "~/assets/icons/SiGithub.svg";
+---
+
+<Layout>
+  <div class="bg-dots bg-amber-200">
+    <nav class="flex items-center px-8 pt-8">
+      <Logo class="h-8 w-auto" />
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-2.5">
+        <span class="font-semibold">Events</span>
+        <span class="text-black/50">&middot;</span>
+        <span class="font-semibold">Support us</span>
+        <span class="text-black/50">&middot;</span>
+        <span class="font-semibold">Contact</span>
+      </div>
+    </nav>
+    <header class="p-8 py-16 text-center">
+      <h1 class="font-satoshi text-6xl font-black tracking-tighter">
+        <span class="relative isolate">
+          Events
+          <TitleDoodle
+            class="absolute inset-x-0 bottom-0 -z-10 h-auto w-full translate-x-0.5"
+          />
+        </span>
+      </h1>
+    </header>
+  </div>
+  <div class="mx-auto max-w-7xl space-y-12 p-8">
+    <div class="space-y-6">
+      <div
+        class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+      >
+        <Image src={daydreamBanner} alt="" class="absolute inset-0 -z-10" />
+        <div
+          class="grid grid-cols-2 gap-8 bg-gradient-to-l from-[#C6E9FB] via-[#C6E9FB] p-8"
+        >
+          <div>
+            <Image src={daydreamLogo} alt="" class="h-auto max-w-full" />
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Daydream</h3>
+            <p class="mt-2 text-xl leading-normal text-neutral-800">
+              All-day game jams in London, Cambridge and Brighton. Work together
+              to make amazing games, alongside young people in 100+ cities
+              worldwide.
+            </p>
+            <p class="mt-2 text-neutral-600">
+              27th-28th September 2025 · with Hack Club
+            </p>
+
+            <button
+              class="mt-4 flex h-10 items-center rounded-full bg-cyan-800 px-5 font-semibold text-white shadow-sm transition hover:bg-cyan-900"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="font-satoshi text-center text-3xl font-bold">Past events</h2>
+      <div class="mt-6 grid grid-cols-2 gap-8">
+        <div>
+          <Image
+            src={coolAsHack}
+            alt=""
+            class="aspect-video w-full rounded-lg border border-neutral-300 object-cover shadow-sm"
+          />
+          <div class="mt-4">
+            <h3 class="text-xl font-semibold">Cool As Hack</h3>
+            <p class="mt-2 text-xl leading-normal text-neutral-800">
+              An all-day hackathon at Raspberry Pi HQ, where teens worked
+              together to make novel and interesting projects. Part of Coolest
+              Projects, an annual global competition for young people to make.
+            </p>
+            <p class="mt-2 text-neutral-600">April 2025 · with Raspberry Pi</p>
+          </div>
+        </div>
+        <div>
+          <Image
+            src={scrapyardLon}
+            alt=""
+            class="aspect-video w-full rounded-lg border border-neutral-300 object-cover shadow-sm"
+          />
+          <div class="mt-4">
+            <h3 class="text-xl font-semibold">Scrapyard London</h3>
+            <p class="mt-2 text-xl leading-normal text-neutral-800">
+              An all-day hackathon at tldraw HQ, where teens worked together to
+              create the "scrappiest projects" alongside events from 60+ other
+              cities worldwide in a global event by Hack Club.
+            </p>
+            <p class="mt-2 text-neutral-600">
+              April 2025 · with Hack Club + tldraw
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-footer-dots bg-neutral-900 text-white">
+    <div class="mx-auto max-w-7xl p-8">
+      <div class="grid grid-cols-3 gap-8">
+        <div>
+          <Logo class="h-12 w-auto invert" />
+        </div>
+        <div>
+          <h2 class="font-satoshi text-2xl font-bold">This site</h2>
+          <div class="mt-2 space-y-1">
+            <p
+              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+            >
+              Our events
+            </p>
+            <p
+              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+            >
+              Info for parents
+            </p>
+            <p
+              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+            >
+              Support us
+            </p>
+            <p
+              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+            >
+              Contact
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2 class="font-satoshi text-2xl font-bold">Social media</h2>
+          <div class="mt-2 flex flex-wrap gap-2.5">
+            <div
+              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
+            >
+              <SiFacebook
+                class="size-4 text-white transition group-hover:scale-110"
+              />
+            </div>
+            <div
+              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
+            >
+              <SiX class="size-4 text-white transition group-hover:scale-110" />
+            </div>
+            <div
+              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
+            >
+              <SiInstagram
+                class="size-4 text-white transition group-hover:scale-110"
+              />
+            </div>
+            <div
+              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
+            >
+              <SiTiktok
+                class="size-4 text-white transition group-hover:scale-110"
+              />
+            </div>
+            <div
+              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
+            >
+              <SiGithub
+                class="size-4 text-white transition group-hover:scale-110"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 flex justify-between border-t border-neutral-800 pt-4">
+        <div class="text-sm text-neutral-500 italic">
+          <p>© 2025 Youthacks. Registering for UK charity status.</p>
+          <p>
+            Fiscally sponsored by Hack Club, a 501(c)(3) nonprofit in the US.
+          </p>
+        </div>
+        <div class="text-right text-sm text-neutral-500 italic">
+          <p>photography by Edward Hesketh</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>
