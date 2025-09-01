@@ -7,20 +7,13 @@ import Logo from "~/assets/logo/youthacks-logo.svg";
 import SupportDoodle from "~/assets/scribbles/support-us-support.svg";
 import UsDoodle from "~/assets/scribbles/support-us-us.svg";
 
-import daydreamBanner from "~/assets/images/daydream/banner.png";
-import daydreamLogo from "~/assets/images/daydream/temp-logo.png";
-
 import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
 import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
 import scrapyardCam from "~/assets/images/scrapyard-cam/image-1.jpg";
 import counterspellCam from "~/assets/images/counterspell-cam/image-1.jpg";
 
-import SiFacebook from "~/assets/icons/SiFacebook.svg";
-import SiX from "~/assets/icons/SiX.svg";
-import SiInstagram from "~/assets/icons/SiInstagram.svg";
-import SiTiktok from "~/assets/icons/SiTiktok.svg";
-import SiGithub from "~/assets/icons/SiGithub.svg";
 import Card from "~/components/Card.astro";
+import Footer from "~/components/Footer.astro";
 ---
 
 <Layout>
@@ -102,87 +95,5 @@ import Card from "~/components/Card.astro";
       class="aspect-video h-64 w-auto rounded-lg border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1"
     />
   </div>
-  <footer class="bg-footer-dots bg-neutral-900 text-white">
-    <div class="mx-auto max-w-7xl p-8">
-      <div class="grid grid-cols-3 gap-8">
-        <div>
-          <Logo class="h-12 w-auto invert" />
-        </div>
-        <div>
-          <h2 class="font-satoshi text-2xl font-bold">This site</h2>
-          <div class="mt-2 space-y-1">
-            <p
-              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
-            >
-              Our events
-            </p>
-            <p
-              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
-            >
-              Info for parents
-            </p>
-            <p
-              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
-            >
-              Support us
-            </p>
-            <p
-              class="text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
-            >
-              Contact
-            </p>
-          </div>
-        </div>
-        <div>
-          <h2 class="font-satoshi text-2xl font-bold">Social media</h2>
-          <div class="mt-2 flex flex-wrap gap-2.5">
-            <div
-              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
-            >
-              <SiFacebook
-                class="size-4 text-white transition group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
-            >
-              <SiX class="size-4 text-white transition group-hover:scale-110" />
-            </div>
-            <div
-              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
-            >
-              <SiInstagram
-                class="size-4 text-white transition group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
-            >
-              <SiTiktok
-                class="size-4 text-white transition group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="group grid size-10 place-items-center rounded-full border border-neutral-700 transition hover:bg-neutral-800"
-            >
-              <SiGithub
-                class="size-4 text-white transition group-hover:scale-110"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mt-8 flex justify-between border-t border-neutral-800 pt-4">
-        <div class="text-sm text-neutral-500 italic">
-          <p>© 2025 Youthacks. Registering for UK charity status.</p>
-          <p>
-            Fiscally sponsored by Hack Club, a 501(c)(3) nonprofit in the US.
-          </p>
-        </div>
-        <div class="text-right text-sm text-neutral-500 italic">
-          <p>photography by Edward Hesketh</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
