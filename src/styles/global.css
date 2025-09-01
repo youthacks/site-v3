@@ -30,3 +30,11 @@
 @utility bg-dots {
   background-image: url("/patterns/dots.svg");
 }
+@utility bg-footer-dots {
+  background-image: radial-gradient(
+    rgb(255 255 255 / 0.02) 2px,
+    transparent 0px
+  );
+  background-size: 24px 24px;
+  background-position: center;
+}
