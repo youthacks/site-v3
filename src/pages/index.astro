@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 
 import Logo from "~/assets/logo/youthacks-logo.svg";
@@ -18,6 +17,7 @@ import SiX from "~/assets/icons/SiX.svg";
 import SiInstagram from "~/assets/icons/SiInstagram.svg";
 import SiTiktok from "~/assets/icons/SiTiktok.svg";
 import SiGithub from "~/assets/icons/SiGithub.svg";
+import Card from "~/components/Card.astro";
 ---
 
 <Layout>
@@ -75,10 +75,8 @@ import SiGithub from "~/assets/icons/SiGithub.svg";
     </div>
   </div>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
-    <div
-      class="grid grid-cols-2 gap-8 rounded-xl border border-neutral-300 bg-white p-8 shadow-sm"
-    >
-      <h2 class="font-satoshi text-3xl font-bold">
+    <Card title="Our mission">
+      <h2 slot="title" class="font-satoshi text-3xl font-bold">
         Our <span class="relative isolate">
           mission
           <span class="absolute -inset-x-1.5 -bottom-0.5 -z-10">
@@ -103,7 +101,7 @@ import SiGithub from "~/assets/icons/SiGithub.svg";
           <span class="font-semibold text-red-800">Support us</span>
         </div>
       </div>
-    </div>
+    </Card>
     <div>
       <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
       <div class="mt-6 space-y-6">
