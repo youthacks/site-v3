@@ -1,0 +1,38 @@
+---
+import { cva, type VariantProps } from "cva";
+import Logo from "~/assets/logo/youthacks-logo.svg";
+
+const header = cva({
+  variants: {
+    color: {
+      red: "bg-red-200",
+      amber: "bg-amber-200",
+      cyan: "bg-cyan-200",
+    },
+  },
+  defaultVariants: {
+    color: "red",
+  },
+});
+
+interface Props extends VariantProps<typeof header> {}
+const { color } = Astro.props;
+---
+
+<div class={header({ color, class: "bg-dots" })}>
+  <nav class="flex items-center px-8 pt-8">
+    <Logo class="h-8 w-auto" />
+    <div class="flex-1"></div>
+    <div class="flex items-center gap-2.5">
+      <span class="font-semibold">Events</span>
+      <span class="text-black/50">&middot;</span>
+      <span class="font-semibold">Support us</span>
+      <span class="text-black/50">&middot;</span>
+      <span class="font-semibold">Contact</span>
+    </div>
+  </nav>
+  <header class="p-8 py-16 text-center">
+    <slot />
+  </header>
+  <slot name="after-header" />
+</div>

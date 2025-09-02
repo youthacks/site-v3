@@ -13,32 +13,20 @@ import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
 import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
 
 import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
 ---
 
 <Layout>
-  <div class="bg-dots bg-amber-200">
-    <nav class="flex items-center px-8 pt-8">
-      <Logo class="h-8 w-auto" />
-      <div class="flex-1"></div>
-      <div class="flex items-center gap-2.5">
-        <span class="font-semibold">Events</span>
-        <span class="text-black/50">&middot;</span>
-        <span class="font-semibold">Support us</span>
-        <span class="text-black/50">&middot;</span>
-        <span class="font-semibold">Contact</span>
-      </div>
-    </nav>
-    <header class="p-8 py-16 text-center">
-      <h1 class="font-satoshi text-6xl font-black tracking-tighter">
-        <span class="relative isolate">
-          Events
-          <TitleDoodle
-            class="absolute inset-x-0 bottom-0 -z-10 h-auto w-full translate-x-0.5"
-          />
-        </span>
-      </h1>
-    </header>
-  </div>
+  <Header color="amber">
+    <h1 class="font-satoshi text-6xl font-black tracking-tighter">
+      <span class="relative isolate">
+        Events
+        <TitleDoodle
+          class="absolute inset-x-0 bottom-0 -z-10 h-auto w-full translate-x-0.5"
+        />
+      </span>
+    </h1>
+  </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
     <div class="space-y-6">
       <div
