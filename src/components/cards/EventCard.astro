@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { cva, cx } from "cva";
+import dayjs from "~/lib/dayjs";
+
+export function formatDates(_start: Date, _end?: Date) {
+  const start = dayjs(_start);
+  const end = dayjs(_end || _start);
+
+  if (start.isSame(end, "day")) {
+    return start.format("Do MMMM YYYY");
+  }
+  if (start.isSame(end, "month")) {
+    return `${start.format("Do")}-${end.format("Do MMMM YYYY")}`;
+  }
+  if (start.isSame(end, "year")) {
+    return `${start.format("Do MMMM")}-${end.format("Do MMMM YYYY")}`;
+  }
+  return `${start.format("Do MMMM YYYY")}-${end.format("Do MMMM YYYY")}`;
+}
+
+interface Props {
+  item: CollectionEntry<"events">;
+}
+const { item } = Astro.props;
+
+type ColorKey = CollectionEntry<"events">["data"]["colors"]["main"];
+const ctaDark = cva({
+  base: "text-white",
+  variants: {
+    color: {
+      red: "bg-red-800 hover:bg-red-900",
+      blue: "bg-blue-800 hover:bg-blue-900",
+      emerald: "bg-emerald-800 hover:bg-emerald-900",
+    } satisfies Record<ColorKey, string>,
+  },
+});
+const ctaLight = cva({
+  base: "bg-white hover:bg-neutral-200",
+  variants: {
+    color: {
+      red: "text-red-700",
+      blue: "text-blue-700",
+      emerald: "bg-white text-emerald-700",
+    } satisfies Record<ColorKey, string>,
+  },
+});
+const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
+---
+
+<div
+  class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+>
+  <Image
+    src={item.data.banner}
+    alt=""
+    class="absolute inset-0 -z-10 size-full object-cover"
+  />
+  <div class="grid grid-cols-2">
+    <div
+      class="bg-gradient-to-r from-transparent p-8 pr-4"
+      style={{ "--tw-gradient-to": item.data.colors.background }}
+    >
+      <Image
+        src={item.data.logo}
+        alt=""
+        class="h-auto max-h-48 w-auto max-w-96"
+      />
+    </div>
+    <div
+      class={cx(
+        "p-8 pl-4",
+        item.data.colors.text === "black" ? "text-black" : "text-white",
+      )}
+      style={{ backgroundColor: item.data.colors.background }}
+    >
+      <h3 class="text-xl font-semibold">{item.data.title}</h3>
+      <p
+        class={cx(
+          "mt-2 text-xl leading-normal",
+          item.data.colors.text === "black"
+            ? "text-neutral-800"
+            : "text-white/90",
+        )}
+      >
+        {item.data.description}
+      </p>
+      <p
+        class={cx(
+          "mt-2",
+          item.data.colors.text === "black"
+            ? "text-neutral-600"
+            : "text-white/75",
+        )}
+      >
+        {formatDates(item.data.startDate, item.data.endDate)}
+        {
+          !!item.data.partners && (
+            <>
+              <>
+                <span class="mx-0.5">&middot;</span>
+                <span>with {item.data.partners}</span>
+              </>
+            </>
+          )
+        }
+      </p>
+
+      {
+        item.data.cta && (
+          <a
+            href={item.data.cta.href}
+            target="_blank"
+            class={cta({
+              color: item.data.colors.main,
+              class:
+                "mt-4 flex h-10 w-fit items-center rounded-full px-5 font-semibold shadow-sm transition",
+            })}
+          >
+            {item.data.cta.label}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>

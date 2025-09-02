@@ -1,0 +1,33 @@
+import { defineCollection, z } from "astro:content";
+
+const events = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      startDate: z.coerce.date(),
+      endDate: z.coerce.date().optional(),
+      partners: z.string().optional(),
+
+      logo: image(),
+      banner: image(),
+      colors: z.object({
+        main: z.enum(["red", "blue", "emerald"]),
+        background: z
+          .string()
+          .regex(/^#([0-9a-fA-F]{3}){1,2}$/, "Must be a valid hex color")
+          .toUpperCase(),
+        text: z.enum(["black", "white"]),
+      }),
+
+      cta: z.optional(
+        z.object({
+          label: z.string(),
+          href: z.string().url(),
+        }),
+      ),
+    }),
+});
+
+export const collections = { events };

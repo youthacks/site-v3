@@ -20,6 +20,9 @@ importers:
       cva:
         specifier: 1.0.0-beta.4
         version: 1.0.0-beta.4(typescript@5.9.2)
+      dayjs:
+        specifier: ^1.11.18
+        version: 1.11.18
       svelte:
         specifier: ^5.38.6
         version: 5.38.6
@@ -935,6 +938,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  dayjs@1.11.18:
+    resolution: {integrity: sha512-zFBQ7WFRvVRhKcWoUh+ZA1g2HVgUbsZm9sbddh8EC5iv93sui8DVVz1Npvz+r6meo9VKfa8NyLWBsQK1VvIKPA==}
 
   debug@4.4.1:
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
@@ -2815,6 +2821,8 @@ snapshots:
       clsx: 2.1.1
     optionalDependencies:
       typescript: 5.9.2
+
+  dayjs@1.11.18: {}
 
   debug@4.4.1:
     dependencies:

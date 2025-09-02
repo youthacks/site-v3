@@ -1,0 +1,12 @@
+title: Scrapyard London
+description: An all-day hackathon at tldraw HQ, where teens worked together to create the "scrappiest projects", alongside 60+ other cities worldwide in a global event by Hack Club.
+startDate: 2025-03-15
+partners: Hack Club + tldraw
+
+logo: ~/assets/images/scrapyard-lon/logo.png
+banner: ~/assets/images/scrapyard-lon/banner.png
+
+colors:
+  main: emerald
+  background: "#285d5a" # darkened
+  text: white

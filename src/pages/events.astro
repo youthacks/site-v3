@@ -5,14 +5,27 @@ import Layout from "../layouts/Layout.astro";
 
 import TitleDoodle from "~/assets/scribbles/events-events.svg";
 
-import daydreamBanner from "~/assets/images/daydream/banner.png";
-import daydreamLogo from "~/assets/images/daydream/temp-logo.png";
-
 import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
 import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
 
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
+import EventCard from "~/components/cards/EventCard.astro";
+import { getCollection } from "astro:content";
+import dayjs from "~/lib/dayjs";
+
+const events = await getCollection("events").then((items) =>
+  items.sort((a, b) =>
+    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? -1 : 1,
+  ),
+);
+
+const upcomingEvents = events.filter(
+  (item) => !dayjs(item.data.startDate).isBefore(dayjs()),
+);
+const pastEvents = events.filter((item) =>
+  dayjs(item.data.startDate).isBefore(dayjs()),
+);
 ---
 
 <Layout>
@@ -28,39 +41,15 @@ import Header from "~/components/header/Header.astro";
   </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
     <div class="space-y-6">
-      <div
-        class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
-      >
-        <Image src={daydreamBanner} alt="" class="absolute inset-0 -z-10" />
-        <div
-          class="grid grid-cols-2 gap-8 bg-gradient-to-l from-[#C6E9FB] via-[#C6E9FB] p-8"
-        >
-          <div>
-            <Image src={daydreamLogo} alt="" class="h-auto max-w-full" />
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold">Daydream</h3>
-            <p class="mt-2 text-xl leading-normal text-neutral-800">
-              All-day game jams in London, Cambridge and Brighton. Work together
-              to make amazing games, alongside young people in 100+ cities
-              worldwide.
-            </p>
-            <p class="mt-2 text-neutral-600">
-              27th-28th September 2025 · with Hack Club
-            </p>
-
-            <button
-              class="mt-4 flex h-10 items-center rounded-full bg-cyan-800 px-5 font-semibold text-white shadow-sm transition hover:bg-cyan-900"
-            >
-              Register
-            </button>
-          </div>
-        </div>
-      </div>
+      {upcomingEvents.map((event) => <EventCard item={event} />)}
     </div>
     <div>
       <h2 class="font-satoshi text-center text-3xl font-bold">Past events</h2>
-      <div class="mt-6 grid grid-cols-2 gap-8">
+      <div class="mt-6 space-y-6">
+        {pastEvents.map((event) => <EventCard item={event} />)}
+      </div>
+      {
+        /* <div class="mt-6 grid grid-cols-2 gap-8">
         <div>
           <Image
             src={coolAsHack}
@@ -95,7 +84,8 @@ import Header from "~/components/header/Header.astro";
             </p>
           </div>
         </div>
-      </div>
+      </div> */
+      }
     </div>
   </div>
 

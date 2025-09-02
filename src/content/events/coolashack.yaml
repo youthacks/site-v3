@@ -1,0 +1,12 @@
+title: Cool As Hack
+description: An all-day hackathon at Raspberry Pi HQ, where teens worked together to make novel and interesting projects. Part of Coolest Projects, an annual global competition for young people to make.
+startDate: 2025-04-25
+partners: Raspberry Pi
+
+logo: ~/assets/images/coolashack/logo.png
+banner: ~/assets/images/coolashack/banner.png
+
+colors:
+  main: red
+  background: "#9d143a" # darkened
+  text: white
