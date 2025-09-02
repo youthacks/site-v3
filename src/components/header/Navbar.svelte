@@ -21,14 +21,16 @@
   });
 </script>
 
-<nav class="fixed inset-x-0 top-6 z-30 flex h-12 items-center px-6">
-  <a href="/" class="contents"
+<nav
+  class="pointer-events-none fixed inset-x-0 top-6 z-30 flex h-12 items-center px-6"
+>
+  <a href="/" class="pointer-events-auto contents"
     ><img src={logo.src} alt="" class="h-8 w-auto" /></a
   >
   <div class="flex-1"></div>
   <div
     class={cx(
-      "group flex h-12 items-center gap-2.5 rounded-full border text-lg transition-all",
+      "group pointer-events-auto flex h-12 items-center gap-2.5 rounded-full border text-lg transition-all",
       showLinksBg
         ? "border-neutral-300 bg-white px-6 shadow-sm"
         : "border-transparent px-2",
