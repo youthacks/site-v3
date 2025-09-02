@@ -41,7 +41,6 @@
   });
 
   // Width and height of the grid
-  let container: HTMLDivElement;
   let offsetWidth = $state<number>(0);
   let offsetHeight = $state<number>(0);
 
@@ -53,6 +52,7 @@
   let mouseX = $state<number>(-1);
   let mouseY = $state<number>(-1);
   let scrollY = $state<number>(0);
+  let isHovering = $state(false);
 
   let hoverTimeout: number | undefined;
 
@@ -94,7 +94,7 @@
           <div
             class={"col-start-1 row-start-1 size-2 rounded-full bg-black/2"}
           ></div>
-          {#if activeSquareX === col && activeSquareY === row}
+          {#if isHovering && activeSquareX === col && activeSquareY === row}
             <div
               class={activeDot({
                 color,
@@ -113,13 +113,13 @@
   onmousemove={(e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    isHovering = true;
 
     if (hoverTimeout) {
       clearTimeout(hoverTimeout);
     }
     hoverTimeout = window.setTimeout(() => {
-      mouseX = -1;
-      mouseY = -1;
+      isHovering = false;
     }, 50);
   }}
   onscroll={() => {
