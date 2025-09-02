@@ -1,6 +1,6 @@
 ---
 import { cva, type VariantProps } from "cva";
-import Logo from "~/assets/logo/youthacks-logo.svg";
+import Navbar from "./Navbar.svelte";
 
 const header = cva({
   variants: {
@@ -19,18 +19,18 @@ interface Props extends VariantProps<typeof header> {}
 const { color } = Astro.props;
 ---
 
+<Navbar
+  links={[
+    { label: "Events", href: "/events" },
+    { label: "Support us", href: "/donate" },
+    { label: "Contact", href: "/contact" },
+  ]}
+  client:load
+/>
 <div class={header({ color, class: "bg-dots" })}>
-  <nav class="flex items-center px-8 pt-8">
-    <Logo class="h-8 w-auto" />
-    <div class="flex-1"></div>
-    <div class="flex items-center gap-2.5">
-      <span class="font-semibold">Events</span>
-      <span class="text-black/50">&middot;</span>
-      <span class="font-semibold">Support us</span>
-      <span class="text-black/50">&middot;</span>
-      <span class="font-semibold">Contact</span>
-    </div>
-  </nav>
+  {/* Navbar padding */}
+  <div class="h-16"></div>
+
   <header class="p-8 py-16 text-center">
     <slot />
   </header>
