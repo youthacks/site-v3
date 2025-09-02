@@ -1,6 +1,7 @@
 ---
 import { cva, type VariantProps } from "cva";
 import Navbar from "./Navbar.svelte";
+import HeaderBackground from "./HeaderBackground.svelte";
 
 const header = cva({
   variants: {
@@ -27,12 +28,20 @@ const { color } = Astro.props;
   ]}
   client:load
 />
-<div class={header({ color, class: "bg-dots" })}>
-  {/* Navbar padding */}
-  <div class="h-16"></div>
+<div
+  class={header({
+    color,
+    // class: "bg-dots",
+  })}
+>
+  <div class="relative isolate">
+    {/* Navbar padding */}
+    <div class="h-16"></div>
 
-  <header class="p-8 py-16 text-center">
-    <slot />
-  </header>
+    <HeaderBackground color={color} client:idle />
+    <header class="p-8 py-16 text-center">
+      <slot />
+    </header>
+  </div>
   <slot name="after-header" />
 </div>
