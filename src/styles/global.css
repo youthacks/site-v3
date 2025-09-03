@@ -7,7 +7,7 @@
 
 @layer base {
   html {
-    @apply bg-neutral-50;
+    @apply scroll-smooth bg-neutral-50;
   }
   body,
   .font-sans {

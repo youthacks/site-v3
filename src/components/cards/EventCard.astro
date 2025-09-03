@@ -4,6 +4,8 @@ import type { CollectionEntry } from "astro:content";
 import { cva, cx } from "cva";
 import dayjs from "~/lib/dayjs";
 
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+
 export function formatDates(_start: Date, _end?: Date) {
   const start = dayjs(_start);
   const end = dayjs(_end || _start);
@@ -115,10 +117,14 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
             class={cta({
               color: item.data.colors.main,
               class:
-                "mt-4 flex h-10 w-fit items-center rounded-full px-5 font-semibold shadow-sm transition",
+                "group mt-4 flex h-10 w-fit items-center gap-1.5 rounded-full px-5 font-semibold shadow-sm transition",
             })}
           >
-            {item.data.cta.label}
+            <span>{item.data.cta.label}</span>
+            <LuArrowRight
+              class="size-4 transition-transform group-hover:translate-x-0.5"
+              stroke-width={3}
+            />
           </a>
         )
       }
