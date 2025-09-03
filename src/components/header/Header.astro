@@ -3,6 +3,12 @@ import { cva, type VariantProps } from "cva";
 import Navbar from "./Navbar.svelte";
 import HeaderBackground from "./HeaderBackground.svelte";
 
+const HEADER_LINKS = [
+  { label: "Events", href: "/events" },
+  { label: "Support us", href: "/donate" },
+  { label: "Contact", href: "#" },
+];
+
 const header = cva({
   variants: {
     color: {
@@ -20,14 +26,7 @@ interface Props extends VariantProps<typeof header> {}
 const { color } = Astro.props;
 ---
 
-<Navbar
-  links={[
-    { label: "Events", href: "/events" },
-    { label: "Support us", href: "/donate" },
-    { label: "Contact", href: "/contact" },
-  ]}
-  client:load
-/>
+<Navbar links={HEADER_LINKS} client:load />
 <div
   class={header({
     color,
