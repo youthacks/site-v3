@@ -25,12 +25,12 @@ export default defineConfig({
             style: "italic",
           },
           {
-            src: ["./src/assets/fonts/WorkSans/WorkSans-Semibold.woff2"],
+            src: ["./src/assets/fonts/WorkSans/WorkSans-SemiBold.woff2"],
             weight: "600",
             style: "normal",
           },
           {
-            src: ["./src/assets/fonts/WorkSans/WorkSans-SemiboldItalic.woff2"],
+            src: ["./src/assets/fonts/WorkSans/WorkSans-SemiBoldItalic.woff2"],
             weight: "600",
             style: "italic",
           },
