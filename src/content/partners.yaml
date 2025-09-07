@@ -1,0 +1,44 @@
+- id: raspberry-pi
+  title: "Raspberry Pi Foundation"
+  logo: ~/assets/logos/partners/raspberry-pi.png
+  url: https://www.raspberrypi.org/
+
+- id: github
+  title: "GitHub"
+  logo: ~/assets/logos/partners/github.png
+  url: https://www.github.com/
+
+- id: tldraw
+  title: "tldraw"
+  logo: ~/assets/logos/partners/tldraw.png
+  url: https://www.tldraw.dev/
+
+- id: nandos
+  title: "Nando's"
+  logo: ~/assets/logos/partners/nandos.png
+  url: https://www.nandos.co.uk/
+
+- id: yifang
+  title: "Yi Fang"
+  logo: ~/assets/logos/partners/yifang.png
+  url: https://www.yifangtea.com/
+
+- id: yubico
+  title: "Yubico"
+  logo: ~/assets/logos/partners/yubico.png
+  url: https://www.yubico.com/
+
+- id: aromi-cucina
+  title: "Aromi Cucina"
+  logo: ~/assets/logos/partners/aromi-cucina.png
+  url: https://www.aromi.co.uk/
+
+- id: fireaway
+  title: "Fireaway"
+  logo: ~/assets/logos/partners/fireaway.png
+  url: https://www.fireaway.co.uk/
+
+- id: learnanything
+  title: "Learn Anything"
+  logo: ~/assets/logos/partners/learnanything.png
+  url: https://www.learnanything.com/

@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 
 const events = defineCollection({
   loader: glob({ pattern: "**/*.yaml", base: "./src/content/events" }),
@@ -31,4 +31,14 @@ const events = defineCollection({
     }),
 });
 
-export const collections = { events };
+const partners = defineCollection({
+  loader: file("./src/content/partners.yaml"),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      logo: image(),
+      url: z.string().url(),
+    }),
+});
+
+export const collections = { events, partners };

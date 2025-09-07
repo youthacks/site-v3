@@ -17,6 +17,9 @@ import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
 import EventCard from "~/components/cards/EventCard.astro";
+import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
+
+const partners = await getCollection("partners");
 
 const futureEvents = await getCollection("events", (item) =>
   dayjs(item.data.startDate).isAfter(dayjs()),
@@ -125,6 +128,12 @@ const futureEvents = await getCollection("events", (item) =>
             stroke-width={3}
           />
         </a>
+      </div>
+    </div>
+    <div>
+      <h2 class="font-satoshi text-center text-3xl font-bold">Our partners</h2>
+      <div class="mt-4">
+        <PartnersMarquee partners={partners} client:idle />
       </div>
     </div>
   </div>
