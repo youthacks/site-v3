@@ -3,6 +3,17 @@
 @theme inline {
   --font-sans: var(--font-sans);
   --font-satoshi: var(--font-satoshi);
+
+  --animate-blink: blink 1.5s step-start infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 @layer base {

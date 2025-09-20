@@ -11,11 +11,10 @@ import LuArrowDown from "~/assets/icons/LuArrowDown.svg";
 import TogetherDoodle from "~/assets/scribbles/index-together.svg";
 import MissionDoodle from "~/assets/scribbles/index-mission.svg";
 
-import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
-
 import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
+import HeroTitle from "~/components/header/HeroTitle.svelte";
 import EventCard from "~/components/cards/EventCard.astro";
 import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
 
@@ -31,26 +30,24 @@ const futureEvents = await getCollection("events", (item) =>
 ---
 
 <Layout>
-  <Header color="red">
-    <h1 class="font-satoshi text-8xl font-black tracking-tighter">
-      We are <span class="text-red-800">makers_</span>
-    </h1>
-    <p class="mx-auto mt-4 max-w-3xl text-2xl text-balance">
+  <Header color="red" showCoverImage>
+    <HeroTitle client:idle />
+    <p class="mx-auto mt-4 max-w-3xl text-xl text-balance">
       We support and run hackathons for teens, and create safe spaces where
       young coders can thrive, <span class="relative font-semibold">
         together.
         <TogetherDoodle class="absolute inset-x-0 -bottom-1.5 h-auto w-full" />
       </span>
     </p>
-    <div class="mt-6 flex justify-center gap-4">
+    <div class="mt-6 flex gap-4">
       <a
         href="/donate"
         class="flex h-12 items-center gap-2 rounded-full bg-red-800 px-6 text-lg font-semibold text-white shadow-sm transition hover:bg-red-900"
       >
         <span>Donate</span>
       </a>
-      <a
-        href="#events"
+      <button
+        onclick="scrollToEvents()"
         class="flex h-12 items-center gap-2 rounded-full border-2 border-red-800 px-6 text-lg font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white"
       >
         <span>See our events</span>
@@ -58,25 +55,28 @@ const futureEvents = await getCollection("events", (item) =>
           class="size-4 transition-transform group-hover:translate-x-0.5"
           stroke-width={3}
         />
-      </a>
-    </div>
-
-    <div slot="after-header" class="relative h-96">
-      <Image
-        src={hero}
-        alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
-        class="h-full w-full object-cover object-center"
-      />
-      <div
-        class="absolute top-4 right-4 flex h-7 items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm"
-      >
-        <span class="text-xs text-white">
-          Scrapyard Cambridge, at Raspberry Pi Foundation
-        </span>
-      </div>
+      </button>
     </div>
   </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
+    <div id="events">
+      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
+      <div class="mt-6 space-y-6">
+        {futureEvents.map((event) => <EventCard item={event} />)}
+      </div>
+      <div class="mt-6 flex justify-center">
+        <a
+          href="/events"
+          class="group flex items-center gap-2 text-xl font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
+        >
+          <span>View past events</span>
+          <LuArrowRight
+            class="size-4 transition-transform group-hover:translate-x-0.5"
+            stroke-width={3}
+          />
+        </a>
+      </div>
+    </div>
     <Card title="Our mission">
       <h2 slot="title" class="font-satoshi text-3xl font-bold">
         Our <span class="relative isolate">
@@ -112,24 +112,6 @@ const futureEvents = await getCollection("events", (item) =>
         </div>
       </div>
     </Card>
-    <div id="events">
-      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
-      <div class="mt-6 space-y-6">
-        {futureEvents.map((event) => <EventCard item={event} />)}
-      </div>
-      <div class="mt-6 flex justify-center">
-        <a
-          href="/events"
-          class="group flex items-center gap-2 text-xl font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
-        >
-          <span>View past events</span>
-          <LuArrowRight
-            class="size-4 transition-transform group-hover:translate-x-0.5"
-            stroke-width={3}
-          />
-        </a>
-      </div>
-    </div>
     <div class="text-center">
       <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
       <p class="mt-2 text-lg text-neutral-600">
@@ -142,3 +124,13 @@ const futureEvents = await getCollection("events", (item) =>
   </div>
   <Footer />
 </Layout>
+
+<script is:inline>
+  function scrollToEvents() {
+    const el = document.querySelector("#events");
+    if (!el) return;
+
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 96;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+</script>
