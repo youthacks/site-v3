@@ -42,6 +42,7 @@
   };
 
   $effect(() => {
+    // Add some padding where the scrollbar would be to prevent layout shift
     if (showModal) {
       const scrollbarWidth =
         window.innerWidth - document.documentElement.clientWidth;
@@ -80,13 +81,13 @@
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Tab") {
         if (event.shiftKey) {
-          // Shift + Tab
+          // Shift + Tab - if on first element, go to last
           if (document.activeElement === firstElement) {
             event.preventDefault();
             lastElement.focus();
           }
         } else {
-          // Tab
+          // Tab - if on last element, go to first
           if (document.activeElement === lastElement) {
             event.preventDefault();
             firstElement.focus();
@@ -158,6 +159,7 @@
             <span class="sr-only">Close modal</span>
           </span>
         </button>
+
         <h3 class="font-satoshi truncate text-3xl font-semibold">Contact us</h3>
 
         <ul class="mt-4">
