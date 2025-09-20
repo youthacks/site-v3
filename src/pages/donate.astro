@@ -81,8 +81,11 @@ const partners = await getCollection("partners");
       </Card>
     </div>
 
-    <div>
-      <h2 class="font-satoshi text-center text-3xl font-bold">Our partners</h2>
+    <div class="text-center">
+      <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
+      <p class="mt-2 text-lg text-neutral-600">
+        Amazing organisations we've worked with to bring our events to life.
+      </p>
       <div class="mt-4">
         <PartnersMarquee partners={partners} client:idle />
       </div>
