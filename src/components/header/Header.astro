@@ -3,6 +3,9 @@ import { cva, type VariantProps } from "cva";
 import Navbar from "./Navbar.svelte";
 import HeaderBackground from "./HeaderBackground.svelte";
 
+import { Image } from "astro:assets";
+import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
+
 const HEADER_LINKS = [
   { label: "Events", href: "/events" },
   { label: "Support us", href: "/donate" },
@@ -22,25 +25,51 @@ const header = cva({
   },
 });
 
-interface Props extends VariantProps<typeof header> {}
-const { color } = Astro.props;
+interface Props extends VariantProps<typeof header> {
+  showCoverImage?: boolean;
+}
+const { color, showCoverImage } = Astro.props;
 ---
 
 <Navbar links={HEADER_LINKS} client:load />
-<div
+<header
   class={header({
     color,
-    // class: "bg-dots",
+    class: "mb-6 relative isolate",
   })}
 >
-  <div class="relative isolate">
-    {/* Navbar padding */}
-    <div class="h-16"></div>
+  {/* Navbar padding */}
+  <div class="h-20"></div>
 
-    <HeaderBackground color={color} client:idle />
-    <header class="p-8 py-16 text-center">
-      <slot />
-    </header>
-  </div>
-  <slot name="after-header" />
-</div>
+  <HeaderBackground color={color} client:idle />
+
+  {
+    showCoverImage ? (
+      <div class="grid grid-cols-2">
+        <div>
+          <div class="ml-auto max-w-[calc(var(--container-7xl)_/_2)] py-16 pr-4 pl-8">
+            <slot />
+          </div>
+        </div>
+        <div class="-mb-6 pt-8 pr-8 pl-4 contain-size">
+          <div class="relative h-full">
+            <Image
+              src={hero}
+              alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
+              class="size-full rounded-xl object-cover object-center shadow-lg"
+            />
+            <div class="absolute top-4 right-4 flex h-7 items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm">
+              <span class="text-xs text-white">
+                Scrapyard Cambridge, at Raspberry Pi Foundation
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="p-8 py-16 text-center">
+        <slot />
+      </div>
+    )
+  }
+</header>

@@ -9,8 +9,7 @@
     "dreamers",
     "innovators",
   ];
-  const headingClass = "font-satoshi text-8xl font-black tracking-tighter";
-  let wordLengths = $state<number[]>(Array(words.length).fill(0));
+  const headingClass = "font-satoshi text-7xl font-black tracking-tighter";
 
   let currentWordIndex = 0;
   let currentWord = $state(words[0]);
@@ -47,7 +46,7 @@
 </script>
 
 <h1 class={headingClass}>
-  <span>We are</span>
+  <span>We are</span><br />
   <span class="text-red-800">
     {currentWord}<span class={[!isChanging && "animate-blink"]}>_</span>
   </span>

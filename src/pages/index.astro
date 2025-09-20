@@ -32,16 +32,16 @@ const futureEvents = await getCollection("events", (item) =>
 ---
 
 <Layout>
-  <Header color="red">
+  <Header color="red" showCoverImage>
     <HeaderWeAre client:idle />
-    <p class="mx-auto mt-4 max-w-3xl text-2xl text-balance">
+    <p class="mx-auto mt-4 max-w-3xl text-xl text-balance">
       We support and run hackathons for teens, and create safe spaces where
       young coders can thrive, <span class="relative font-semibold">
         together.
         <TogetherDoodle class="absolute inset-x-0 -bottom-1.5 h-auto w-full" />
       </span>
     </p>
-    <div class="mt-6 flex justify-center gap-4">
+    <div class="mt-6 flex gap-4">
       <a
         href="/donate"
         class="flex h-12 items-center gap-2 rounded-full bg-red-800 px-6 text-lg font-semibold text-white shadow-sm transition hover:bg-red-900"
@@ -58,21 +58,6 @@ const futureEvents = await getCollection("events", (item) =>
           stroke-width={3}
         />
       </a>
-    </div>
-
-    <div slot="after-header" class="relative h-96">
-      <Image
-        src={hero}
-        alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
-        class="h-full w-full object-cover object-center"
-      />
-      <div
-        class="absolute top-4 right-4 flex h-7 items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm"
-      >
-        <span class="text-xs text-white">
-          Scrapyard Cambridge, at Raspberry Pi Foundation
-        </span>
-      </div>
     </div>
   </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
