@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
 
@@ -16,6 +17,10 @@ import counterspellCam from "~/assets/images/counterspell-cam/image-1.jpg";
 import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
+
+import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
+
+const partners = await getCollection("partners");
 ---
 
 <Layout>
@@ -76,7 +81,15 @@ import Header from "~/components/header/Header.astro";
       </Card>
     </div>
 
-    {/* you could put a list of partners here! */}
+    <div class="text-center">
+      <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
+      <p class="mt-2 text-lg text-neutral-600">
+        Amazing organisations we've worked with to bring our events to life.
+      </p>
+      <div class="mt-4">
+        <PartnersMarquee partners={partners} client:idle />
+      </div>
+    </div>
   </div>
   <div class="flex justify-center gap-4 overflow-x-clip p-8 pt-4">
     <Image

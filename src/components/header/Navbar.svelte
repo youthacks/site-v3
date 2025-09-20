@@ -1,7 +1,7 @@
 <script lang="ts">
   import { cx } from "cva";
   import { onMount } from "svelte";
-  import logo from "~/assets/logo/youthacks-logo.svg";
+  import logo from "~/assets/logos/youthacks-logo.svg";
 
   type Link = { label: string; href: string };
   const { links }: { links: Link[] } = $props();
