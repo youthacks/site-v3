@@ -16,6 +16,7 @@ import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
 import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
+import HeaderWeAre from "~/components/header/HeaderWeAre.svelte";
 import EventCard from "~/components/cards/EventCard.astro";
 import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
 
@@ -32,9 +33,7 @@ const futureEvents = await getCollection("events", (item) =>
 
 <Layout>
   <Header color="red">
-    <h1 class="font-satoshi text-8xl font-black tracking-tighter">
-      We are <span class="text-red-800">makers_</span>
-    </h1>
+    <HeaderWeAre client:idle />
     <p class="mx-auto mt-4 max-w-3xl text-2xl text-balance">
       We support and run hackathons for teens, and create safe spaces where
       young coders can thrive, <span class="relative font-semibold">
