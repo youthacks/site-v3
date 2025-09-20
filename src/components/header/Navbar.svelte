@@ -49,12 +49,10 @@
             <span class="pointer-events-none text-black/50">&middot;</span>
           {/if}
           {#if href === "#contact"}
-            <ContactButton>
-              <span
-                class="font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
-              >
-                {label}
-              </span>
+            <ContactButton
+              class="font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
+            >
+              {label}
             </ContactButton>
           {:else}
             <a

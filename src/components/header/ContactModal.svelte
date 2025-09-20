@@ -7,6 +7,7 @@
   import LuX from "~/assets/icons/LuX.svelte";
   import LuCopy from "~/assets/icons/LuCopy.svelte";
   import LuCheck from "~/assets/icons/LuCheck.svelte";
+  import type { HTMLAttributes } from "svelte/elements";
 
   const EMAILS = [
     {
@@ -23,7 +24,11 @@
     },
   ];
 
-  const { children } = $props();
+  const {
+    children,
+    class: className,
+    ...props
+  }: HTMLAttributes<HTMLButtonElement> = $props();
 
   let openButton: HTMLButtonElement;
   let showModal = $state(false);
@@ -110,9 +115,10 @@
 </script>
 
 <button
+  {...props}
   bind:this={openButton}
   onclick={() => (showModal = true)}
-  class="cursor-pointer"
+  class={["cursor-pointer", className]}
 >
   {@render children?.()}
 </button>
