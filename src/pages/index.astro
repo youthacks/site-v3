@@ -11,8 +11,6 @@ import LuArrowDown from "~/assets/icons/LuArrowDown.svg";
 import TogetherDoodle from "~/assets/scribbles/index-together.svg";
 import MissionDoodle from "~/assets/scribbles/index-mission.svg";
 
-import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
-
 import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
@@ -48,8 +46,8 @@ const futureEvents = await getCollection("events", (item) =>
       >
         <span>Donate</span>
       </a>
-      <a
-        href="#events"
+      <button
+        onclick="scrollToEvents()"
         class="flex h-12 items-center gap-2 rounded-full border-2 border-red-800 px-6 text-lg font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white"
       >
         <span>See our events</span>
@@ -57,10 +55,28 @@ const futureEvents = await getCollection("events", (item) =>
           class="size-4 transition-transform group-hover:translate-x-0.5"
           stroke-width={3}
         />
-      </a>
+      </button>
     </div>
   </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
+    <div id="events">
+      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
+      <div class="mt-6 space-y-6">
+        {futureEvents.map((event) => <EventCard item={event} />)}
+      </div>
+      <div class="mt-6 flex justify-center">
+        <a
+          href="/events"
+          class="group flex items-center gap-2 text-xl font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
+        >
+          <span>View past events</span>
+          <LuArrowRight
+            class="size-4 transition-transform group-hover:translate-x-0.5"
+            stroke-width={3}
+          />
+        </a>
+      </div>
+    </div>
     <Card title="Our mission">
       <h2 slot="title" class="font-satoshi text-3xl font-bold">
         Our <span class="relative isolate">
@@ -96,24 +112,6 @@ const futureEvents = await getCollection("events", (item) =>
         </div>
       </div>
     </Card>
-    <div id="events">
-      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
-      <div class="mt-6 space-y-6">
-        {futureEvents.map((event) => <EventCard item={event} />)}
-      </div>
-      <div class="mt-6 flex justify-center">
-        <a
-          href="/events"
-          class="group flex items-center gap-2 text-xl font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
-        >
-          <span>View past events</span>
-          <LuArrowRight
-            class="size-4 transition-transform group-hover:translate-x-0.5"
-            stroke-width={3}
-          />
-        </a>
-      </div>
-    </div>
     <div class="text-center">
       <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
       <p class="mt-2 text-lg text-neutral-600">
@@ -126,3 +124,13 @@ const futureEvents = await getCollection("events", (item) =>
   </div>
   <Footer />
 </Layout>
+
+<script is:inline>
+  function scrollToEvents() {
+    const el = document.querySelector("#events");
+    if (!el) return;
+
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 96;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+</script>
