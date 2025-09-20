@@ -16,6 +16,7 @@
     "dayjs": "^1.11.18",
     "motion": "^12.23.12",
     "svelte": "^5.38.6",
+    "svelte-portal": "^2.2.1",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2"
   },

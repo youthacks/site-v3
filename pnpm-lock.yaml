@@ -29,6 +29,9 @@ importers:
       svelte:
         specifier: ^5.38.6
         version: 5.38.6
+      svelte-portal:
+        specifier: ^2.2.1
+        version: 2.2.1
       tailwindcss:
         specifier: ^4.1.12
         version: 4.1.12
@@ -1742,6 +1745,9 @@ packages:
 
   suf-log@2.5.3:
     resolution: {integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==}
+
+  svelte-portal@2.2.1:
+    resolution: {integrity: sha512-uF7is5sM4aq5iN7QF/67XLnTUvQCf2iiG/B1BHTqLwYVY1dsVmTeXZ/LeEyU6dLjApOQdbEG9lkqHzxiQtOLEQ==}
 
   svelte2tsx@0.7.42:
     resolution: {integrity: sha512-PSNrKS16aVdAajoFjpF5M0t6TA7ha7GcKbBajD9RG3M+vooAuvLnWAGUSC6eJL4zEOVbOWKtcS2BuY4rxPljoA==}
@@ -3905,6 +3911,8 @@ snapshots:
   suf-log@2.5.3:
     dependencies:
       s.color: 0.0.15
+
+  svelte-portal@2.2.1: {}
 
   svelte2tsx@0.7.42(svelte@5.38.6)(typescript@5.9.2):
     dependencies:
