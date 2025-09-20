@@ -123,8 +123,7 @@
   {@render children?.()}
 </button>
 
-<div use:portal class="relative z-30" hidden>
-  {#if showModal}
+{#if showModal}<div use:portal class="relative z-30" hidden>
     <div
       transition:fade={{ duration: 150 }}
       class="fixed inset-0 bg-black/50"
@@ -204,5 +203,5 @@
         </ul>
       </div>
     </div>
-  {/if}
-</div>
+  </div>
+{/if}
