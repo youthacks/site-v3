@@ -6,11 +6,13 @@ import SiInstagram from "~/assets/icons/SiInstagram.svg";
 import SiTiktok from "~/assets/icons/SiTiktok.svg";
 import SiGithub from "~/assets/icons/SiGithub.svg";
 
+import ContactButton from "~/components/header/ContactModal.svelte";
+
 const FOOTER_LINKS = [
   { label: "Our events", href: "/events" },
   { label: "Info for parents", href: "#" },
   { label: "Support us", href: "/donate" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const FOOTER_SOCIALS = [
@@ -34,14 +36,23 @@ const FOOTER_SOCIALS = [
         <h2 class="font-satoshi text-2xl font-bold">This site</h2>
         <div class="mt-2 space-y-1">
           {
-            FOOTER_LINKS.map(({ label, href }) => (
-              <a
-                href={href}
-                class="block max-w-fit text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
-              >
-                {label}
-              </a>
-            ))
+            FOOTER_LINKS.map(({ label, href }) =>
+              href === "#contact" ? (
+                <ContactButton
+                  client:load
+                  class="block max-w-fit text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+                >
+                  {label}
+                </ContactButton>
+              ) : (
+                <a
+                  href={href}
+                  class="block max-w-fit text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+                >
+                  {label}
+                </a>
+              ),
+            )
           }
         </div>
       </div>

@@ -1,6 +1,9 @@
 <script lang="ts">
   import { cx } from "cva";
   import { onMount } from "svelte";
+
+  import ContactButton from "./ContactModal.svelte";
+
   import logo from "~/assets/logos/youthacks-logo.svg";
 
   type Link = { label: string; href: string };
@@ -45,12 +48,20 @@
           {#if i > 0}
             <span class="pointer-events-none text-black/50">&middot;</span>
           {/if}
-          <a
-            {href}
-            class="font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
-          >
-            {label}
-          </a>
+          {#if href === "#contact"}
+            <ContactButton
+              class="font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
+            >
+              {label}
+            </ContactButton>
+          {:else}
+            <a
+              {href}
+              class="font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
+            >
+              {label}
+            </a>
+          {/if}
         {/each}
       </div>
     </div>
