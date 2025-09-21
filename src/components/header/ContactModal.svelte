@@ -75,7 +75,7 @@
       out:fade={{ duration: 200 }}
       class="fixed inset-0 bg-black/50"
     ></div>
-    <div class="fixed inset-0 isolate flex items-center justify-center p-8">
+    <div class="fixed inset-0 isolate flex items-center justify-center p-4">
       <div
         role="presentation"
         onclick={() => (showModal = false)}
@@ -93,7 +93,7 @@
         out:scale={{ duration: 200, start: 0.95 }}
         role="dialog"
         tabindex={0}
-        class="relative w-full max-w-xl rounded-xl bg-white p-8 shadow-lg outline-none"
+        class="relative w-full max-w-xl rounded-xl bg-white p-6 shadow-lg outline-none sm:p-8"
       >
         <button
           onclick={() => {
