@@ -62,7 +62,9 @@ const futureEvents = await getCollection("events", (item) =>
   </Header>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
     <div id="events">
-      <h2 class="font-satoshi text-center text-3xl font-bold">Coming up</h2>
+      <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">
+        Coming up
+      </h2>
       <div class="mt-6 space-y-6">
         {futureEvents.map((event) => <EventCard item={event} />)}
       </div>

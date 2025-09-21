@@ -19,13 +19,22 @@ import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
 
 import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
+import dayjs from "dayjs";
+import { formatDates } from "~/lib/events";
 
 const partners = await getCollection("partners");
+
+const events = await getCollection("events");
+const nextEvent = events
+  .filter((item) => dayjs(item.data.startDate).isAfter(dayjs()))
+  .sort((a, b) =>
+    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? 1 : -1,
+  )[0];
 ---
 
 <Layout>
   <Header color="cyan">
-    <h1 class="font-satoshi text-6xl font-black tracking-tighter">
+    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
       <span class="relative isolate"
         >Support<SupportDoodle
           class="absolute inset-x-0 -bottom-2 -z-10 h-auto w-full translate-x-0.5"
@@ -40,7 +49,7 @@ const partners = await getCollection("partners");
   <div class="mx-auto max-w-7xl space-y-12 p-8">
     <div class="space-y-6">
       <Card title="Volunteer">
-        <div class="text-xl leading-normal text-neutral-800">
+        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
           <p>
             We're looking for passionate volunteers to help with our next
             events. If you’re over 18, can pass an enhanced DBS check, and love
@@ -52,18 +61,23 @@ const partners = await getCollection("partners");
           >
             <span>hello@youthacks.org</span>
             <LuArrowRight
-              class="size-4 transition-transform group-hover:translate-x-0.5"
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
               stroke-width={3}
             />
           </a>
-          <p class="mt-3 text-base text-neutral-600">
-            <span class="font-semibold">Coming up:</span>
-            Daydream, 27th-28th September 2025
-          </p>
+          {
+            nextEvent && (
+              <p class="mt-3 text-sm text-neutral-600 sm:text-base">
+                <span class="font-semibold">Coming up:</span>
+                {nextEvent.data.title},{" "}
+                {formatDates(nextEvent.data.startDate, nextEvent.data.endDate)}
+              </p>
+            )
+          }
         </div>
       </Card>
       <Card title="Donate">
-        <div class="text-xl leading-normal text-neutral-800">
+        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
           <p>
             Our events are always free to attend for young people. If you’re a
             company or individual who wants to have a meaningful impact on the
@@ -75,7 +89,7 @@ const partners = await getCollection("partners");
           >
             <span>donate@youthacks.org</span>
             <LuArrowRight
-              class="size-4 transition-transform group-hover:translate-x-0.5"
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
               stroke-width={3}
             />
           </a>
@@ -84,8 +98,8 @@ const partners = await getCollection("partners");
     </div>
 
     <div class="text-center">
-      <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
-      <p class="mt-2 text-lg text-neutral-600">
+      <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Past sponsors</h2>
+      <p class="mt-1.5 text-pretty text-neutral-600 sm:mt-2 sm:text-lg">
         Amazing organisations we've worked with to bring our events to life.
       </p>
       <div class="mt-4">
@@ -97,22 +111,22 @@ const partners = await getCollection("partners");
     <Image
       src={coolAsHack}
       alt=""
-      class="aspect-video h-64 w-auto rounded-lg border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1"
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
     />
     <Image
       src={scrapyardLon}
       alt=""
-      class="aspect-video h-64 w-auto rounded-lg border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1"
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
     />
     <Image
       src={scrapyardCam}
       alt=""
-      class="aspect-video h-64 w-auto rounded-lg border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1"
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
     />
     <Image
       src={counterspellCam}
       alt=""
-      class="aspect-video h-64 w-auto rounded-lg border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1"
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
     />
   </div>
   <Footer />
