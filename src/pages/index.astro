@@ -32,23 +32,25 @@ const futureEvents = await getCollection("events", (item) =>
 <Layout>
   <Header color="red" showCoverImage>
     <HeroTitle client:idle />
-    <p class="mx-auto mt-4 max-w-3xl text-xl text-balance">
+    <p class="mt-4 max-w-3xl text-lg text-balance max-lg:mx-auto sm:text-xl">
       We support and run hackathons for teens, and create safe spaces where
       young coders can thrive, <span class="relative font-semibold">
         together.
         <TogetherDoodle class="absolute inset-x-0 -bottom-1.5 h-auto w-full" />
       </span>
     </p>
-    <div class="mt-6 flex gap-4">
+    <div
+      class="mt-4 flex flex-wrap gap-x-4 gap-y-2 max-lg:justify-center sm:mt-6"
+    >
       <a
         href="/donate"
-        class="flex h-12 items-center gap-2 rounded-full bg-red-800 px-6 text-lg font-semibold text-white shadow-sm transition hover:bg-red-900"
+        class="flex h-10 flex-none items-center gap-2 rounded-full bg-red-800 px-5 font-semibold text-white shadow-sm transition hover:bg-red-900 sm:h-12 sm:px-6 sm:text-lg"
       >
         <span>Donate</span>
       </a>
       <button
         onclick="scrollToEvents()"
-        class="flex h-12 items-center gap-2 rounded-full border-2 border-red-800 px-6 text-lg font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white"
+        class="flex h-10 flex-none items-center gap-2 rounded-full border-2 border-red-800 px-5 font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white sm:h-12 sm:px-6 sm:text-lg"
       >
         <span>See our events</span>
         <LuArrowDown
@@ -67,18 +69,18 @@ const futureEvents = await getCollection("events", (item) =>
       <div class="mt-6 flex justify-center">
         <a
           href="/events"
-          class="group flex items-center gap-2 text-xl font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
+          class="group flex items-center gap-2 font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline sm:text-lg lg:text-xl"
         >
           <span>View past events</span>
           <LuArrowRight
-            class="size-4 transition-transform group-hover:translate-x-0.5"
+            class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
             stroke-width={3}
           />
         </a>
       </div>
     </div>
     <Card title="Our mission">
-      <h2 slot="title" class="font-satoshi text-3xl font-bold">
+      <h2 slot="title" class="font-satoshi text-2xl font-bold sm:text-3xl">
         Our <span class="relative isolate">
           mission
           <span class="absolute -inset-x-1.5 -bottom-0.5 -z-10">
@@ -86,7 +88,7 @@ const futureEvents = await getCollection("events", (item) =>
           </span>
         </span>
       </h2>
-      <div class="text-xl leading-normal text-neutral-800">
+      <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
         <p>
           Hackathons are social coding events, where people can get together,
           make new friends, and work on amazing projects, no matter their skill
@@ -98,14 +100,14 @@ const futureEvents = await getCollection("events", (item) =>
           run by them.
         </p>
         <p class="mt-3">Like the idea? We’d love your help.</p>
-        <div class="mt-1 flex items-center gap-4 text-xl">
+        <div class="mt-1 flex items-center gap-4">
           <a
             href="/donate"
             class="group flex items-center gap-2 font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
           >
             <span>Support our work</span>
             <LuArrowRight
-              class="size-4 transition-transform group-hover:translate-x-0.5"
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
               stroke-width={3}
             />
           </a>
@@ -113,8 +115,8 @@ const futureEvents = await getCollection("events", (item) =>
       </div>
     </Card>
     <div class="text-center">
-      <h2 class="font-satoshi text-3xl font-bold">Past sponsors</h2>
-      <p class="mt-2 text-lg text-neutral-600">
+      <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Past sponsors</h2>
+      <p class="mt-1.5 text-pretty text-neutral-600 sm:mt-2 sm:text-lg">
         Amazing organisations we've worked with to bring our events to life.
       </p>
       <div class="mt-4">

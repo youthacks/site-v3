@@ -9,7 +9,6 @@
     "dreamers",
     "innovators",
   ];
-  const headingClass = "font-satoshi text-7xl font-black tracking-tighter";
 
   let currentWordIndex = 0;
   let currentWord = $state(words[0]);
@@ -45,8 +44,8 @@
   });
 </script>
 
-<h1 class={headingClass}>
-  <span>We are</span><br />
+<h1 class={"font-satoshi text-6xl font-black tracking-tighter sm:text-7xl"}>
+  <span>We are</span><br class="md:max-lg:hidden" />
   <span class="text-red-800">
     {currentWord}<span class={[!isChanging && "animate-blink"]}>_</span>
   </span>

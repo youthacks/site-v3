@@ -59,28 +59,28 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
     alt=""
     class="absolute inset-0 -z-10 size-full object-cover"
   />
-  <div class="grid grid-cols-2">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
     <div
-      class="flex flex-col justify-center bg-gradient-to-r from-transparent p-8 pr-4"
+      class="flex flex-col justify-center bg-gradient-to-b from-transparent p-8 lg:bg-gradient-to-r lg:pr-4"
       style={{ "--tw-gradient-to": item.data.colors.background }}
     >
       <Image
         src={item.data.logo}
         alt=""
-        class="h-auto max-h-48 w-max max-w-96"
+        class="h-auto max-h-48 w-max max-w-[min(calc(var(--spacing)_*_96),100%)]"
       />
     </div>
     <div
       class={cx(
-        "p-8 pl-4",
+        "p-8 max-lg:pt-0 lg:pl-4",
         item.data.colors.text === "black" ? "text-black" : "text-white",
       )}
       style={{ backgroundColor: item.data.colors.background }}
     >
-      <h3 class="text-xl font-semibold">{item.data.title}</h3>
+      <h3 class="text-lg font-semibold lg:text-xl">{item.data.title}</h3>
       <p
         class={cx(
-          "mt-2 text-xl leading-normal",
+          "mt-2 leading-normal text-pretty sm:text-lg lg:text-xl",
           item.data.colors.text === "black"
             ? "text-neutral-800"
             : "text-white/90",
@@ -90,7 +90,7 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
       </p>
       <p
         class={cx(
-          "mt-2",
+          "mt-2 text-sm leading-normal text-pretty sm:text-base",
           item.data.colors.text === "black"
             ? "text-neutral-600"
             : "text-white/75",
