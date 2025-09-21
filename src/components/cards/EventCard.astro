@@ -36,10 +36,13 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
 
 <div
   class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+  style={{ backgroundColor: item.data.colors.background }}
 >
   <Image
     src={item.data.artwork}
     alt=""
+    layout="full-width"
+    sizes="(max-width: 1280px) 100vw, 1280px"
     class="absolute inset-0 -z-10 size-full object-cover"
   />
   <div class="grid grid-cols-1 lg:grid-cols-2">
@@ -50,6 +53,7 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
       <Image
         src={item.data.logo}
         alt=""
+        layout="constrained"
         class="h-auto max-h-48 w-max max-w-[min(calc(var(--spacing)_*_96),100%)]"
       />
     </div>

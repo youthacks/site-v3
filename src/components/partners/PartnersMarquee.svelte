@@ -69,6 +69,8 @@
         width={partner.data.logo.width}
         height={partner.data.logo.height}
         class="h-16 w-auto"
+        loading="lazy"
+        decoding="async"
       />
     </a>
   {/each}
