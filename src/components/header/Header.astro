@@ -56,10 +56,12 @@ const { color, showCoverImage } = Astro.props;
               alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
               class="size-full rounded-xl object-cover object-center shadow-lg"
             />
-            <div class="absolute top-4 right-4 flex h-7 items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm">
-              <span class="text-xs text-white">
-                Scrapyard Cambridge, at Raspberry Pi Foundation
-              </span>
+            <div class="absolute inset-x-0 top-0 p-2">
+              <div class="ml-auto flex h-7 max-w-fit items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm">
+                <span class="truncate text-xs text-white">
+                  Scrapyard Cambridge, at Raspberry Pi Foundation
+                </span>
+              </div>
             </div>
           </div>
         </div>
