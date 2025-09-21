@@ -61,7 +61,7 @@
       onmouseenter={onHover}
       onmouseleave={onLeave}
       tabindex="-1"
-      class="mr-4 flex-none opacity-50 grayscale transition duration-200 hover:scale-105 hover:opacity-100 hover:grayscale-0 hover:duration-300"
+      class="mr-4 flex-none opacity-50 transition duration-200 hover:scale-105 hover:opacity-100 hover:grayscale-0 hover:duration-300 pointer-fine:grayscale"
     >
       <img
         src={partner.data.logo.src}
