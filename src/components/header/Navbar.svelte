@@ -4,8 +4,8 @@
 
   import ContactButton from "./ContactModal.svelte";
 
-  import logo from "~/assets/logos/youthacks-logo.svg";
-  import { fade, fly, type TransitionConfig } from "svelte/transition";
+  import logo from "~/assets/logos/youthacks-logo.svg?url";
+  import { fade, type TransitionConfig } from "svelte/transition";
   import { portal } from "svelte-portal";
   import { focusTrap } from "~/lib/modal";
   import LuX from "~/assets/icons/LuX.svelte";
@@ -67,7 +67,7 @@
       ]}
     >
       <a href="/">
-        <img src={logo.src} alt="" class="h-7 w-auto" />
+        <img src={logo} alt="" class="h-7 w-auto" />
       </a>
       <div class="flex-1"></div>
       <button
@@ -134,7 +134,7 @@
           ]}
         >
           <a href="/">
-            <img src={logo.src} alt="" class="h-7 w-auto" />
+            <img src={logo} alt="" class="h-7 w-auto" />
           </a>
 
           <button
