@@ -12,7 +12,7 @@ const events = defineCollection({
       partners: z.string().optional(),
 
       logo: image(),
-      banner: image(),
+      artwork: image(),
       colors: z.object({
         main: z.enum(["red", "blue", "emerald"]),
         background: z

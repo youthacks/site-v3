@@ -44,7 +44,7 @@ const ctaLight = cva({
     color: {
       red: "text-red-700",
       blue: "text-blue-700",
-      emerald: "bg-white text-emerald-700",
+      emerald: "text-emerald-700",
     } satisfies Record<ColorKey, string>,
   },
 });
@@ -55,7 +55,7 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
   class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
 >
   <Image
-    src={item.data.banner}
+    src={item.data.artwork}
     alt=""
     class="absolute inset-0 -z-10 size-full object-cover"
   />

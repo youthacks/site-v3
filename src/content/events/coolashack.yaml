@@ -4,7 +4,7 @@ startDate: 2025-04-25
 partners: Raspberry Pi
 
 logo: ~/assets/images/coolashack/logo.png
-banner: ~/assets/images/coolashack/banner.png
+artwork: ~/assets/images/coolashack/banner.png
 
 colors:
   main: red
