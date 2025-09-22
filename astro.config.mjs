@@ -7,6 +7,11 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    "/for-parents": "/parents",
+    "/contact-us": "/",
+  },
+
   experimental: {
     fonts: [
       {
