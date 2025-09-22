@@ -1,6 +1,12 @@
 ---
 import Font from "astro/components/Font.astro";
 import "../styles/global.css";
+
+interface Props {
+  pageTitle?: string;
+  description?: string;
+}
+const { pageTitle, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,10 +16,16 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
 
     <Font cssVariable="--font-sans" />
     <Font cssVariable="--font-satoshi" />
+
+    <title>{pageTitle ? `${pageTitle} | Youthacks` : "Youthacks"}</title>
+    <meta
+      name="description"
+      content={description ||
+        "We support and run hackathons for teens, and create safe spaces where young coders can thrive, together."}
+    />
   </head>
   <body>
     <slot />
