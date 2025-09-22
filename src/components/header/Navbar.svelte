@@ -68,6 +68,7 @@
     >
       <a href="/">
         <img src={logo} alt="" class="h-7 w-auto" />
+        <span class="sr-only">Home</span>
       </a>
       <div class="flex-1"></div>
       <button
@@ -135,6 +136,7 @@
         >
           <a href="/">
             <img src={logo} alt="" class="h-7 w-auto" />
+            <span class="sr-only">Home</span>
           </a>
 
           <button
