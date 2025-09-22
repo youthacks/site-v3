@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+
+import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
+import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
+import scrapyardCam from "~/assets/images/scrapyard-cam/image-1.jpg";
+import counterspellCam from "~/assets/images/counterspell-cam/image-1.jpg";
+
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/header/Header.astro";
+import Card from "~/components/cards/Card.astro";
+---
+
+<Layout pageTitle="Info for parents">
+  <Header color="neutral">
+    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
+      Info for parents
+    </h1>
+  </Header>
+  <div class="mx-auto max-w-7xl space-y-12 p-8">
+    <div class="space-y-6">
+      <Card title="Who are we?">
+        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
+          <p>
+            We're Youthacks - we work with partners like Hack Club and the
+            Raspberry Pi Foundation to support and run hackathons for teens all
+            across the UK.
+          </p>
+          <p class="mt-3">
+            We've run some amazing events in the past, including Cool As Hack,
+            Scrapyard, and Counterspell.
+          </p>
+          <a
+            href="/events"
+            class="group mt-1 flex w-fit items-center gap-2 font-semibold text-neutral-700 underline-offset-2 transition hover:text-neutral-900 hover:underline"
+          >
+            <span>See our events</span>
+            <LuArrowRight
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
+              stroke-width={3}
+            />
+          </a>
+        </div>
+      </Card>
+      <Card title="Safeguarding">
+        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
+          <p>
+            We want all young people attending our events to be safe and
+            protected throughout. All our staff are DBS checked, and children
+            are supervised at all times.
+          </p>
+        </div>
+      </Card>
+      <Card title="Staying in touch">
+        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
+          <p>
+            Our social media accounts are regularly updated throughout events,
+            so go give us a follow on <a
+              href="https://www.facebook.com/people/Youthacks/61575504317362/"
+              target="_blank"
+              class="group font-semibold text-neutral-700 underline-offset-2 transition hover:text-neutral-900 hover:underline"
+              >Facebook</a
+            >
+            or
+            <a
+              href="https://www.instagram.com/youthacks"
+              target="_blank"
+              class="group font-semibold text-neutral-700 underline-offset-2 transition hover:text-neutral-900 hover:underline"
+              >Instagram</a
+            > to see what we're up to!
+          </p>
+          <p class="mt-3">
+            If you've got any questions, we'd love to hear from you!
+          </p>
+          <a
+            href="mailto:hello@youthacks.org"
+            class="group mt-1 flex w-fit items-center gap-2 font-semibold text-neutral-700 underline-offset-2 transition hover:text-neutral-900 hover:underline"
+          >
+            <span>hello@youthacks.org</span>
+            <LuArrowRight
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
+              stroke-width={3}
+            />
+          </a>
+        </div>
+      </Card>
+    </div>
+  </div>
+  <div class="flex justify-center gap-4 overflow-x-clip p-8 pt-4">
+    <Image
+      src={coolAsHack}
+      alt=""
+      widths={[240, 320, 540]}
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
+    />
+    <Image
+      src={scrapyardLon}
+      alt=""
+      widths={[240, 320, 540, 720]}
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
+    />
+    <Image
+      src={scrapyardCam}
+      alt=""
+      widths={[240, 320, 540, 720]}
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
+    />
+    <Image
+      src={counterspellCam}
+      alt=""
+      widths={[240, 320, 540, 720]}
+      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
+    />
+  </div>
+
+  <Footer />
+</Layout>

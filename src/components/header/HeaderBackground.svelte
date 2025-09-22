@@ -25,6 +25,7 @@
         red: "bg-red-600",
         amber: "bg-amber-600",
         cyan: "bg-cyan-600",
+        neutral: "bg-neutral-600",
       },
     },
     defaultVariants: {
