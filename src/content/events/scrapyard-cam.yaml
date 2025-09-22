@@ -4,7 +4,7 @@ startDate: 2025-03-15
 partners: Hack Club + Raspberry Pi
 
 logo: ~/assets/images/scrapyard-cam/logo.png
-banner: ~/assets/images/scrapyard-cam/banner.png
+artwork: ~/assets/images/scrapyard-cam/banner.png
 
 colors:
   main: emerald

@@ -2,25 +2,8 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { cva, cx } from "cva";
-import dayjs from "~/lib/dayjs";
-
+import { formatDates } from "~/lib/events";
 import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
-
-export function formatDates(_start: Date, _end?: Date) {
-  const start = dayjs(_start);
-  const end = dayjs(_end || _start);
-
-  if (start.isSame(end, "day")) {
-    return start.format("Do MMMM YYYY");
-  }
-  if (start.isSame(end, "month")) {
-    return `${start.format("Do")}-${end.format("Do MMMM YYYY")}`;
-  }
-  if (start.isSame(end, "year")) {
-    return `${start.format("Do MMMM")}-${end.format("Do MMMM YYYY")}`;
-  }
-  return `${start.format("Do MMMM YYYY")}-${end.format("Do MMMM YYYY")}`;
-}
 
 interface Props {
   item: CollectionEntry<"events">;
@@ -44,7 +27,7 @@ const ctaLight = cva({
     color: {
       red: "text-red-700",
       blue: "text-blue-700",
-      emerald: "bg-white text-emerald-700",
+      emerald: "text-emerald-700",
     } satisfies Record<ColorKey, string>,
   },
 });
@@ -53,34 +36,38 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
 
 <div
   class="relative isolate overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+  style={{ backgroundColor: item.data.colors.background }}
 >
   <Image
-    src={item.data.banner}
+    src={item.data.artwork}
     alt=""
+    layout="full-width"
+    sizes="(max-width: 1280px) 100vw, 1280px"
     class="absolute inset-0 -z-10 size-full object-cover"
   />
-  <div class="grid grid-cols-2">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
     <div
-      class="flex flex-col justify-center bg-gradient-to-r from-transparent p-8 pr-4"
+      class="flex flex-col justify-center bg-gradient-to-b from-transparent p-8 lg:bg-gradient-to-r lg:pr-4"
       style={{ "--tw-gradient-to": item.data.colors.background }}
     >
       <Image
         src={item.data.logo}
         alt=""
-        class="h-auto max-h-48 w-max max-w-96"
+        layout="constrained"
+        class="h-auto max-h-48 w-max max-w-[min(calc(var(--spacing)_*_96),100%)]"
       />
     </div>
     <div
       class={cx(
-        "p-8 pl-4",
+        "p-8 max-lg:pt-0 lg:pl-4",
         item.data.colors.text === "black" ? "text-black" : "text-white",
       )}
       style={{ backgroundColor: item.data.colors.background }}
     >
-      <h3 class="text-xl font-semibold">{item.data.title}</h3>
+      <h3 class="text-lg font-semibold lg:text-xl">{item.data.title}</h3>
       <p
         class={cx(
-          "mt-2 text-xl leading-normal",
+          "mt-2 leading-normal text-pretty sm:text-lg lg:text-xl",
           item.data.colors.text === "black"
             ? "text-neutral-800"
             : "text-white/90",
@@ -90,7 +77,7 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
       </p>
       <p
         class={cx(
-          "mt-2",
+          "mt-2 text-sm leading-normal text-pretty sm:text-base",
           item.data.colors.text === "black"
             ? "text-neutral-600"
             : "text-white/75",

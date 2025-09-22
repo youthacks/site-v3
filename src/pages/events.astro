@@ -30,7 +30,7 @@ const pastEvents = events.filter((item) =>
 
 <Layout>
   <Header color="amber">
-    <h1 class="font-satoshi text-6xl font-black tracking-tighter">
+    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
       <span class="relative isolate">
         Events
         <TitleDoodle
@@ -44,7 +44,9 @@ const pastEvents = events.filter((item) =>
       {upcomingEvents.map((event) => <EventCard item={event} />)}
     </div>
     <div>
-      <h2 class="font-satoshi text-center text-3xl font-bold">Past events</h2>
+      <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">
+        Past events
+      </h2>
       <div class="mt-6 space-y-6">
         {pastEvents.map((event) => <EventCard item={event} />)}
       </div>

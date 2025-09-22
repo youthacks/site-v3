@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { tick } from "svelte";
   import { portal } from "svelte-portal";
-  import type { Attachment } from "svelte/attachments";
   import { fade, scale } from "svelte/transition";
+  import { focusTrap } from "~/lib/modal";
 
   import LuX from "~/assets/icons/LuX.svelte";
   import LuCopy from "~/assets/icons/LuCopy.svelte";
@@ -58,60 +57,6 @@
       document.body.style.paddingRight = "";
     }
   });
-
-  const clickOutside = (fn: () => void): Attachment => {
-    return (element) => {
-      const handleClick = (event: MouseEvent) => {
-        if (element.contains(event.target as Node)) return;
-        fn();
-      };
-
-      document.addEventListener("click", handleClick, true);
-      return () => {
-        document.removeEventListener("click", handleClick, true);
-      };
-    };
-  };
-
-  const focusTrap = (element: HTMLElement) => {
-    const focusableElements = element.querySelectorAll(
-      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]), [contenteditable]',
-    );
-
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[
-      focusableElements.length - 1
-    ] as HTMLElement;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Tab") {
-        if (event.shiftKey) {
-          // Shift + Tab - if on first element, go to last
-          if (document.activeElement === firstElement) {
-            event.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          // Tab - if on last element, go to first
-          if (document.activeElement === lastElement) {
-            event.preventDefault();
-            firstElement.focus();
-          }
-        }
-      }
-    };
-
-    element.addEventListener("keydown", handleKeyDown);
-
-    // Focus the modal when it opens
-    tick().then(() => {
-      element.focus();
-    });
-
-    return () => {
-      element.removeEventListener("keydown", handleKeyDown);
-    };
-  };
 </script>
 
 <button
@@ -123,30 +68,32 @@
   {@render children?.()}
 </button>
 
-{#if showModal}<div use:portal class="relative z-30" hidden>
+{#if showModal}
+  <div use:portal class="relative z-30" hidden>
     <div
-      transition:fade={{ duration: 150 }}
+      in:fade={{ duration: 250 }}
+      out:fade={{ duration: 200 }}
       class="fixed inset-0 bg-black/50"
     ></div>
-    <div class="fixed inset-0 flex items-center justify-center p-8">
+    <div class="fixed inset-0 isolate flex items-center justify-center p-4">
+      <div
+        role="presentation"
+        onclick={() => (showModal = false)}
+        class="absolute inset-0"
+      ></div>
       <div
         {@attach focusTrap}
-        {@attach clickOutside(() => {
-          if (showModal) {
-            showModal = false;
-            openButton.focus();
-          }
-        })}
         onkeyup={(event) => {
           if (event.key === "Escape" && showModal) {
             showModal = false;
             openButton.focus();
           }
         }}
-        transition:scale={{ duration: 150, start: 0.95 }}
+        in:scale={{ duration: 250, start: 0.95 }}
+        out:scale={{ duration: 200, start: 0.95 }}
         role="dialog"
         tabindex={0}
-        class="relative w-full max-w-xl rounded-xl bg-white p-8 shadow-lg outline-none"
+        class="relative w-full max-w-xl rounded-xl bg-white p-6 shadow-lg outline-none sm:p-8"
       >
         <button
           onclick={() => {
@@ -156,10 +103,10 @@
           class="group absolute top-2 right-2 size-8"
         >
           <span
-            class="grid size-full place-items-center rounded-sm transition group-hover:bg-stone-200 group-active:scale-95"
+            class="grid size-full place-items-center rounded-sm transition group-hover:bg-neutral-200 group-active:scale-95"
           >
             <LuX
-              class="size-5 text-stone-500 transition-colors group-hover:text-stone-700"
+              class="size-5 text-neutral-500 transition-colors group-hover:text-neutral-700"
             />
             <span class="sr-only">Close modal</span>
           </span>
@@ -171,11 +118,11 @@
           {#each EMAILS as { label, email }}
             {@const isCopied = copied === email}
             <li
-              class="flex items-center justify-between border-t border-stone-300 py-3 last:pb-0"
+              class="flex items-center justify-between border-t border-neutral-300 py-3 last:pb-0"
             >
               <div>
                 <p class="font-semibold">{label}</p>
-                <p class="mt-px text-stone-600">
+                <p class="mt-px text-neutral-600">
                   {email}
                 </p>
               </div>
@@ -185,14 +132,14 @@
                 class="group relative size-8"
               >
                 <span
-                  class="grid size-full place-items-center rounded-sm transition group-hover:bg-stone-200 group-active:scale-95 group-disabled:scale-100 group-disabled:!bg-transparent"
+                  class="grid size-full place-items-center rounded-sm transition group-hover:bg-neutral-200 group-active:scale-95 group-disabled:scale-100 group-disabled:!bg-transparent"
                 >
                   {#if isCopied}
                     <LuCheck class="size-4 text-emerald-700" />
                     <span class="sr-only">Copied</span>
                   {:else}
                     <LuCopy
-                      class="size-4 text-stone-500 transition-colors group-hover:text-stone-700"
+                      class="size-4 text-neutral-500 transition-colors group-hover:text-neutral-700"
                     />
                     <span class="sr-only">Copy</span>
                   {/if}

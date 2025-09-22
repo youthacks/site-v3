@@ -4,7 +4,7 @@ startDate: 2025-03-15
 partners: Hack Club + tldraw
 
 logo: ~/assets/images/scrapyard-lon/logo.png
-banner: ~/assets/images/scrapyard-lon/banner.png
+artwork: ~/assets/images/scrapyard-lon/banner.png
 
 colors:
   main: emerald

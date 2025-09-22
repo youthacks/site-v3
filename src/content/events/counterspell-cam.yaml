@@ -4,7 +4,7 @@ startDate: 2024-09-27
 partners: Hack Club + Raspberry Pi
 
 logo: ~/assets/images/counterspell-cam/logo.png
-banner: ~/assets/images/counterspell-cam/banner.png
+artwork: ~/assets/images/counterspell-cam/banner.png
 
 colors:
   main: emerald

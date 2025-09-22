@@ -1,5 +1,5 @@
 ---
-import Logo from "~/assets/logos/youthacks-logo.svg";
+import logo from "~/assets/logos/youthacks-logo.svg";
 
 import SiFacebook from "~/assets/icons/SiFacebook.svg";
 import SiInstagram from "~/assets/icons/SiInstagram.svg";
@@ -28,9 +28,9 @@ const FOOTER_SOCIALS = [
 
 <footer class="bg-footer-dots bg-neutral-900 text-white">
   <div class="mx-auto max-w-7xl p-8">
-    <div class="grid grid-cols-3 gap-8">
-      <div>
-        <Logo class="h-12 w-auto invert" />
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="sm:max-lg:col-span-2">
+        <img src={logo.src} class="h-12 w-auto invert" />
       </div>
       <div>
         <h2 class="font-satoshi text-2xl font-bold">This site</h2>
@@ -40,14 +40,14 @@ const FOOTER_SOCIALS = [
               href === "#contact" ? (
                 <ContactButton
                   client:load
-                  class="block max-w-fit text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+                  class="block max-w-fit text-neutral-400 underline-offset-2 transition hover:text-white hover:underline sm:text-lg"
                 >
                   {label}
                 </ContactButton>
               ) : (
                 <a
                   href={href}
-                  class="block max-w-fit text-lg text-neutral-400 underline-offset-2 transition hover:text-white hover:underline"
+                  class="block max-w-fit text-neutral-400 underline-offset-2 transition hover:text-white hover:underline sm:text-lg"
                 >
                   {label}
                 </a>
@@ -73,12 +73,17 @@ const FOOTER_SOCIALS = [
         </div>
       </div>
     </div>
-    <div class="mt-8 flex justify-between border-t border-neutral-800 pt-4">
+    <div
+      class="mt-8 flex gap-3 border-t border-neutral-800 pt-4 max-lg:flex-col lg:justify-between"
+    >
       <div class="text-sm text-neutral-500 italic">
-        <p>© 2025 Youthacks. Registering for UK charity status.</p>
-        <p>Fiscally sponsored by Hack Club, a 501(c)(3) nonprofit in the US.</p>
+        <p>
+          © 2025 Youthacks. Registering for UK charity status.
+          <br />
+          Fiscally sponsored by Hack Club, a 501(c)(3) nonprofit in the US.
+        </p>
       </div>
-      <div class="text-right text-sm text-neutral-500 italic">
+      <div class="text-sm text-neutral-500 italic lg:text-right">
         <p>photography by Edward Hesketh</p>
       </div>
     </div>
