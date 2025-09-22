@@ -22,14 +22,14 @@
   }
   body,
   .font-sans {
-    /* ss01: single-storey 'a' to match logo */
-    /* ss06: single-storey 'g' */
-    font-feature-settings: "ss01", "ss06";
+    /* ss01: single-storey 'g' */
+    /* ss06: single-storey 'a' */
+    font-feature-settings: "ss01";
   }
   .font-satoshi {
-    /* ss01: single-storey 'a' to match logo */
+    /* ss01: single-storey 'a' */
     /* ss03: 't' with tail */
-    font-feature-settings: "ss01", "ss03";
+    font-feature-settings: "ss03";
   }
 
   body > * {
