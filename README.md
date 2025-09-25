@@ -4,6 +4,8 @@ This is the (to-be) website for Youthacks. We support and run student-led hackat
 
 You can find it ✨ [**right here**](https://site-v3-lyart.vercel.app/) ✨ - go check it out!
 
+<img width="2492" height="1771" alt="A screenshot of the website" src="https://github.com/user-attachments/assets/e6b43c69-0a31-4c8b-bf5a-f89ed8bfb153" />
+
 ## 🚀 Contribute
 
 This website is made with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), with [Svelte](https://svelte.dev) for some interactive parts.
