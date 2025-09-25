@@ -1,10 +1,12 @@
-# Youthacks website
+# Youthacks website (v3)
 
-This is the (hopefully to-be) website for Youthacks. We support and run student-led hackathons.
+This is the (to-be) website for Youthacks. We support and run student-led hackathons.
 
-This website is made with [Astro](https://astro.build), with [Svelte](https://svelte.dev) for some interactive parts.
+You can find it ✨ [**right here**](https://site-v3-lyart.vercel.app/) ✨ - go check it out!
 
 ## 🚀 Contribute
+
+This website is made with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), with [Svelte](https://svelte.dev) for some interactive parts.
 
 ```sh
 pnpm install
@@ -27,3 +29,9 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm preview`         | Preview your build locally, before deploying     |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## ♥️ Credits + thanks
+
+Made by [@heygideon](https://github.com/heygideon), with Matthew, David, Alfie, and the rest of the awesome Youthacks team.
+
+Photography by William Wallace, Jacob, and Edward Hesketh.
