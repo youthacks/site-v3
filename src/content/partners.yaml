@@ -8,20 +8,15 @@
   logo: ~/assets/logos/partners/github.png
   url: https://www.github.com/
 
-- id: tldraw
-  title: "tldraw"
-  logo: ~/assets/logos/partners/tldraw.png
-  url: https://www.tldraw.dev/
+- id: hackclub
+  title: "Hack Club"
+  logo: ~/assets/logos/partners/hackclub.png
+  url: https://www.hackclub.com/
 
-- id: nandos
-  title: "Nando's"
-  logo: ~/assets/logos/partners/nandos.png
-  url: https://www.nandos.co.uk/
-
-- id: yifang
-  title: "Yi Fang"
-  logo: ~/assets/logos/partners/yifang.png
-  url: https://www.yifangtea.com/
+- id: ada
+  title: "Ada"
+  logo: ~/assets/logos/partners/ada.png
+  url: https://www.ada.ac.uk/
 
 - id: yubico
   title: "Yubico"
@@ -38,7 +33,37 @@
   logo: ~/assets/logos/partners/fireaway.png
   url: https://www.fireaway.co.uk/
 
+- id: brighton-youth
+  title: "Brighton Youth Centre"
+  logo: ~/assets/logos/partners/brighton-youth.png
+  url: https://www.brightonyouthcentre.org.uk/
+
+- id: cardiff-youth
+  title: "Cardiff Youth Services"
+  logo: ~/assets/logos/partners/cardiff-youth.png
+  url: https://www.cardiffyouthservices.wales/
+
+- id: sparta
+  title: "Sparta Global"
+  logo: ~/assets/logos/partners/sparta.png
+  url: https://www.spartaglobal.com/
+
 - id: learnanything
   title: "Learn Anything"
   logo: ~/assets/logos/partners/learnanything.png
   url: https://www.learnanything.com/
+
+- id: yifang
+  title: "Yi Fang"
+  logo: ~/assets/logos/partners/yifang.png
+  url: https://www.yifangtea.com/
+
+- id: tldraw
+  title: "tldraw"
+  logo: ~/assets/logos/partners/tldraw.png
+  url: https://www.tldraw.dev/
+
+- id: nandos
+  title: "Nando's"
+  logo: ~/assets/logos/partners/nandos.png
+  url: https://www.nandos.co.uk/
