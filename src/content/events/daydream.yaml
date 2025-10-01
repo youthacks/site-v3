@@ -11,7 +11,3 @@ colors:
   main: blue
   background: "#C6E9FB"
   text: black
-
-cta:
-  label: Register
-  href: https://daydream.hackclub.com/
