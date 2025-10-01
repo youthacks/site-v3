@@ -4,15 +4,17 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 
 import TitleDoodle from "~/assets/scribbles/events-events.svg";
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
 
 import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
 import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
 
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
-import EventCard from "~/components/cards/EventCard.astro";
+import EventCard from "~/components/events/EventCard.astro";
 import { getCollection } from "astro:content";
 import dayjs from "~/lib/dayjs";
+import Empty from "~/components/events/Empty.astro";
 
 const events = await getCollection("events").then((items) =>
   items.sort((a, b) =>
@@ -42,6 +44,7 @@ const pastEvents = events.filter((item) =>
   <div class="mx-auto max-w-7xl space-y-12 p-8">
     <div class="space-y-6">
       {upcomingEvents.map((event) => <EventCard item={event} />)}
+      {upcomingEvents.length === 0 && <Empty color="amber" />}
     </div>
     <div>
       <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">

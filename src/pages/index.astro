@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import dayjs from "~/lib/dayjs";
 
@@ -15,8 +14,9 @@ import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
 import HeroTitle from "~/components/header/HeroTitle.svelte";
-import EventCard from "~/components/cards/EventCard.astro";
+import EventCard from "~/components/events/EventCard.astro";
 import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
+import Empty from "~/components/events/Empty.astro";
 
 const partners = await getCollection("partners");
 
@@ -67,6 +67,7 @@ const futureEvents = await getCollection("events", (item) =>
       </h2>
       <div class="mt-6 space-y-6">
         {futureEvents.map((event) => <EventCard item={event} />)}
+        {futureEvents.length === 0 && <Empty color="red" />}
       </div>
       <div class="mt-6 flex justify-center">
         <a

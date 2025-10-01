@@ -1,0 +1,52 @@
+---
+import { cva, type VariantProps } from "cva";
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+
+const cta = cva({
+  base: "text-white",
+  variants: {
+    color: {
+      red: "bg-red-800 hover:bg-red-900",
+      amber: "bg-amber-800 hover:bg-amber-900",
+    },
+  },
+});
+interface Props extends VariantProps<typeof cta> {}
+
+const { color } = Astro.props;
+---
+
+<div
+  class="rounded-xl border-2 border-dashed border-neutral-300 p-8 text-center"
+>
+  <p class="text-lg font-semibold lg:text-xl">No upcoming events 😢</p>
+  <p
+    class="mt-2 leading-normal text-pretty text-neutral-800 sm:text-lg lg:text-xl"
+  >
+    Enter your email to get notified when we announce something new!
+  </p>
+  <div class="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+    {
+      /* <input
+          type="email"
+          placeholder="joe@example.com"
+          class="h-10 w-full max-w-80 flex-none rounded-full border border-neutral-300 bg-white px-5 shadow-xs ring-amber-600 transition outline-none focus:border-amber-600 focus:ring-1"
+        /> */
+    }
+    <a
+      href="https://youthacks.fillout.com/t/4QcFNNsAArus"
+      target="_blank"
+      class={cta({
+        color,
+        class:
+          "group flex h-10 w-fit flex-none items-center gap-1.5 rounded-full px-5 font-semibold shadow-sm transition",
+      })}
+    >
+      <span>Sign up</span>
+      <LuArrowRight
+        class="size-4 transition-transform group-hover:translate-x-0.5"
+        stroke-width={3}
+      />
+    </a>
+  </div>
+</div>
