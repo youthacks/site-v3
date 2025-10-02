@@ -10,6 +10,8 @@ import LuArrowDown from "~/assets/icons/LuArrowDown.svg";
 import TogetherDoodle from "~/assets/scribbles/index-together.svg";
 import MissionDoodle from "~/assets/scribbles/index-mission.svg";
 
+import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
+
 import Card from "~/components/cards/Card.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
@@ -30,7 +32,11 @@ const futureEvents = await getCollection("events", (item) =>
 ---
 
 <Layout pageTitle="Home">
-  <Header color="red" showCoverImage>
+  <Header
+    color="red"
+    coverImage={hero}
+    coverImageLabel="Scrapyard Cambridge, at Raspberry Pi Foundation"
+  >
     <HeroTitle client:idle />
     <p class="mt-4 max-w-3xl text-lg text-balance max-lg:mx-auto sm:text-xl">
       We support and run hackathons for teens, and create safe spaces where

@@ -15,19 +15,15 @@ import EventCard from "~/components/events/EventCard.astro";
 import { getCollection } from "astro:content";
 import dayjs from "~/lib/dayjs";
 import Empty from "~/components/events/Empty.astro";
+import PastEventCard from "~/components/events/PastEventCard.astro";
 
-const events = await getCollection("events").then((items) =>
-  items.sort((a, b) =>
-    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? -1 : 1,
-  ),
+const upcomingEvents = await getCollection(
+  "events",
+  (i) => !i.data.concluded,
+).then((items) =>
+  items.filter((i) => !dayjs(i.data.startDate).isBefore(dayjs())),
 );
-
-const upcomingEvents = events.filter(
-  (item) => !dayjs(item.data.startDate).isBefore(dayjs()),
-);
-const pastEvents = events.filter((item) =>
-  dayjs(item.data.startDate).isBefore(dayjs()),
-);
+const pastEvents = await getCollection("events", (i) => i.data.concluded);
 ---
 
 <Layout pageTitle="Events">
@@ -50,47 +46,14 @@ const pastEvents = events.filter((item) =>
       <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">
         Past events
       </h2>
-      <div class="mt-6 space-y-6">
-        {pastEvents.map((event) => <EventCard item={event} />)}
-      </div>
       {
-        /* <div class="mt-6 grid grid-cols-2 gap-8">
-        <div>
-          <Image
-            src={coolAsHack}
-            alt=""
-            class="aspect-video w-full rounded-lg border border-neutral-300 object-cover shadow-sm"
-          />
-          <div class="mt-4">
-            <h3 class="text-xl font-semibold">Cool As Hack</h3>
-            <p class="mt-2 text-xl leading-normal text-neutral-800">
-              An all-day hackathon at Raspberry Pi HQ, where teens worked
-              together to make novel and interesting projects. Part of Coolest
-              Projects, an annual global competition for young people to make.
-            </p>
-            <p class="mt-2 text-neutral-600">April 2025 · with Raspberry Pi</p>
-          </div>
-        </div>
-        <div>
-          <Image
-            src={scrapyardLon}
-            alt=""
-            class="aspect-video w-full rounded-lg border border-neutral-300 object-cover shadow-sm"
-          />
-          <div class="mt-4">
-            <h3 class="text-xl font-semibold">Scrapyard London</h3>
-            <p class="mt-2 text-xl leading-normal text-neutral-800">
-              An all-day hackathon at tldraw HQ, where teens worked together to
-              create the "scrappiest projects" alongside events from 60+ other
-              cities worldwide in a global event by Hack Club.
-            </p>
-            <p class="mt-2 text-neutral-600">
-              April 2025 · with Hack Club + tldraw
-            </p>
-          </div>
-        </div>
+        /* <div class="mt-6 space-y-6">
+        {pastEvents.map((event) => <EventCard item={event} />)}
       </div> */
       }
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        {pastEvents.map((event) => <PastEventCard item={event} />)}
+      </div>
     </div>
   </div>
 

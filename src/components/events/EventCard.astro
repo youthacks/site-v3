@@ -10,11 +10,16 @@ interface Props {
 }
 const { item } = Astro.props;
 
+if (item.data.concluded) {
+  throw new Error(`EventCard: event ${item.id}: item.data.concluded is true`);
+}
+
 type ColorKey = CollectionEntry<"events">["data"]["colors"]["main"];
 const ctaDark = cva({
   base: "text-white",
   variants: {
     color: {
+      pink: "bg-pink-800 hover:bg-pink-900",
       red: "bg-red-800 hover:bg-red-900",
       blue: "bg-blue-800 hover:bg-blue-900",
       emerald: "bg-emerald-800 hover:bg-emerald-900",
@@ -25,6 +30,7 @@ const ctaLight = cva({
   base: "bg-white hover:bg-neutral-200",
   variants: {
     color: {
+      pink: "text-pink-700",
       red: "text-red-700",
       blue: "text-blue-700",
       emerald: "text-emerald-700",
@@ -87,11 +93,11 @@ const cta = item.data.colors.text === "black" ? ctaDark : ctaLight;
       >
         {formatDates(item.data.startDate, item.data.endDate)}
         {
-          !!item.data.partners && (
+          !!item.data.with && (
             <>
               <>
                 <span class="mx-0.5">&middot;</span>
-                <span>with {item.data.partners}</span>
+                <span>with {item.data.with}</span>
               </>
             </>
           )

@@ -2,7 +2,7 @@ title: Daydream
 description: All-day game jams in London, Cambridge, Brighton, Manchester and North Wales. Work together to make amazing games, alongside young people in 100+ cities worldwide.
 startDate: 2025-09-27
 endDate: 2025-09-28
-partners: Hack Club
+with: Hack Club
 
 logo: ~/assets/images/daydream/logo.png
 artwork: ~/assets/images/daydream/banner.png
@@ -11,3 +11,14 @@ colors:
   main: blue
   background: "#C6E9FB"
   text: black
+
+concluded: false
+# partners:
+#   - hackclub
+#   - github
+#   - ada
+#   - yubico
+#   - aromi-cucina
+#   - sparta
+#   - brighton-youth
+#   - cardiff-youth

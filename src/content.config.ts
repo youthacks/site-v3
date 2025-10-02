@@ -1,34 +1,46 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { file, glob } from "astro/loaders";
 
 const events = defineCollection({
-  loader: glob({ pattern: "**/*.yaml", base: "./src/content/events" }),
+  loader: glob({ pattern: "**/*.{yaml,md}", base: "./src/content/events" }),
   schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      startDate: z.coerce.date(),
-      endDate: z.coerce.date().optional(),
-      partners: z.string().optional(),
+    z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        startDate: z.coerce.date(),
+        endDate: z.coerce.date().optional(),
+        with: z.string().optional(),
 
-      logo: image(),
-      artwork: image(),
-      colors: z.object({
-        main: z.enum(["red", "blue", "emerald"]),
-        background: z
-          .string()
-          .regex(/^#([0-9a-fA-F]{3}){1,2}$/, "Must be a valid hex color")
-          .toUpperCase(),
-        text: z.enum(["black", "white"]),
-      }),
-
-      cta: z.optional(
-        z.object({
-          label: z.string(),
-          href: z.string().url(),
+        logo: image(),
+        artwork: image(),
+        colors: z.object({
+          main: z.enum(["red", "emerald", "blue", "pink"]),
+          background: z
+            .string()
+            .regex(/^#([0-9a-fA-F]{3}){1,2}$/, "Must be a valid hex color")
+            .toUpperCase(),
+          text: z.enum(["black", "white"]),
         }),
+      })
+      .and(
+        z.union([
+          z.object({
+            concluded: z.literal(false),
+            cta: z.optional(
+              z.object({
+                label: z.string(),
+                href: z.string().url(),
+              }),
+            ),
+          }),
+          z.object({
+            concluded: z.literal(true),
+            images: z.array(image()).min(1),
+            partners: z.array(reference("partners")).min(1),
+          }),
+        ]),
       ),
-    }),
 });
 
 const partners = defineCollection({

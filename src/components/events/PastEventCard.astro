@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+
+interface Props {
+  item: CollectionEntry<"events">;
+}
+const { item } = Astro.props;
+
+if (!item.data.concluded) {
+  throw new Error(
+    `PastEventCard: event ${item.id}: item.data.concluded is false`,
+  );
+}
+---
+
+<a
+  href={`/events/${item.id}`}
+  class="group rounded-xl border border-neutral-300 bg-white p-8 shadow-sm"
+>
+  <div
+    class="aspect-video w-full overflow-clip rounded-sm border border-neutral-300 shadow-sm"
+  >
+    <Image
+      src={item.data.images[0]}
+      alt=""
+      class="size-full object-cover transition duration-500 group-hover:scale-110 group-hover:opacity-90"
+    />
+  </div>
+  <div class="mt-6">
+    <h3 class="text-lg font-semibold lg:text-xl">{item.data.title}</h3>
+    <p
+      class="mt-2 line-clamp-4 leading-normal text-neutral-800 sm:text-lg lg:text-xl"
+    >
+      {item.data.description}
+    </p>
+    <p class="mt-2 text-sm text-neutral-600 sm:text-base">
+      {dayjs(item.data.startDate).format("MMMM YYYY")}
+      {
+        !!item.data.with && (
+          <>
+            <>
+              <span class="mx-0.5">&middot;</span>
+              <span>with {item.data.with}</span>
+            </>
+          </>
+        )
+      }
+    </p>
+    <p
+      class="mt-2 flex w-fit items-center gap-2 font-semibold text-amber-700 underline-offset-2 transition group-hover:text-amber-900 group-hover:underline"
+    >
+      <span>Read more</span>
+      <LuArrowRight
+        class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
+        stroke-width={3}
+      />
+    </p>
+  </div>
+</a>

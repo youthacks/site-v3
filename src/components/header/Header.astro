@@ -4,7 +4,7 @@ import Navbar from "./Navbar.svelte";
 import HeaderBackground from "./HeaderBackground.svelte";
 
 import { Image } from "astro:assets";
-import hero from "~/assets/images/hero-scrapyard-cambridge.jpg";
+import type { ImageMetadata } from "astro";
 
 const HEADER_LINKS = [
   { label: "Events", href: "/events" },
@@ -15,9 +15,12 @@ const HEADER_LINKS = [
 const header = cva({
   variants: {
     color: {
+      pink: "bg-pink-200",
       red: "bg-red-200",
       amber: "bg-amber-200",
+      emerald: "bg-emerald-200",
       cyan: "bg-cyan-200",
+      blue: "bg-blue-200",
       neutral: "bg-neutral-200",
     },
   },
@@ -27,9 +30,10 @@ const header = cva({
 });
 
 interface Props extends VariantProps<typeof header> {
-  showCoverImage?: boolean;
+  coverImage?: ImageMetadata;
+  coverImageLabel?: string;
 }
-const { color, showCoverImage } = Astro.props;
+const { color, coverImage, coverImageLabel } = Astro.props;
 ---
 
 <Navbar links={HEADER_LINKS} client:load />
@@ -45,28 +49,30 @@ const { color, showCoverImage } = Astro.props;
   <HeaderBackground color={color} client:idle />
 
   {
-    showCoverImage ? (
+    coverImage ? (
       <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="px-8 py-16 max-lg:text-center lg:ml-auto lg:max-w-[calc(var(--container-7xl)_/_2)] lg:pr-4">
+        <div class="w-full px-8 py-16 max-lg:text-center lg:ml-auto lg:max-w-[calc(var(--container-7xl)_/_2)] lg:pr-4">
           <slot />
         </div>
         <div class="-mb-6 px-8 max-lg:h-80 lg:pt-8 lg:pl-4 lg:contain-size">
           <div class="relative h-full">
             <Image
-              src={hero}
+              src={coverImage}
               alt="A large group of teenagers stood in front of the Raspberry Pi Foundation office"
               priority
               layout="full-width"
               quality="high"
               class="size-full rounded-xl object-cover object-center shadow-lg"
             />
-            <div class="absolute inset-x-0 top-0 p-2">
-              <div class="ml-auto flex h-7 max-w-fit items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm">
-                <span class="truncate text-xs text-white">
-                  Scrapyard Cambridge, at Raspberry Pi Foundation
-                </span>
+            {coverImageLabel && (
+              <div class="absolute inset-x-0 top-0 p-2">
+                <div class="ml-auto flex h-7 max-w-fit items-center rounded-full bg-black/50 px-4 text-white backdrop-blur-sm">
+                  <span class="truncate text-xs text-white">
+                    {coverImageLabel}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

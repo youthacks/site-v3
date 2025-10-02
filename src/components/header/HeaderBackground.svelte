@@ -22,9 +22,12 @@
   const activeDot = cva({
     variants: {
       color: {
+        pink: "bg-pink-600",
         red: "bg-red-600",
         amber: "bg-amber-600",
+        emerald: "bg-emerald-600",
         cyan: "bg-cyan-600",
+        blue: "bg-blue-600",
         neutral: "bg-neutral-600",
       },
     },
