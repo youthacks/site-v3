@@ -1,13 +1,7 @@
 ---
-import { Image } from "astro:assets";
-
 import Layout from "../layouts/Layout.astro";
 
 import TitleDoodle from "~/assets/scribbles/events-events.svg";
-import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
-
-import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
-import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
 
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
@@ -23,7 +17,12 @@ const upcomingEvents = await getCollection(
 ).then((items) =>
   items.filter((i) => !dayjs(i.data.startDate).isBefore(dayjs())),
 );
-const pastEvents = await getCollection("events", (i) => i.data.concluded);
+const pastEvents = await getCollection("events", (i) => i.data.concluded).then(
+  (items) =>
+    items.sort((a, b) =>
+      dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? -1 : 1,
+    ),
+);
 ---
 
 <Layout pageTitle="Events">
