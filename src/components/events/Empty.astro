@@ -25,17 +25,19 @@ const { color } = Astro.props;
   >
     Enter your email to get notified when we announce something new!
   </p>
-  <div class="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
-    {
-      /* <input
-          type="email"
-          placeholder="joe@example.com"
-          class="h-10 w-full max-w-80 flex-none rounded-full border border-neutral-300 bg-white px-5 shadow-xs ring-amber-600 transition outline-none focus:border-amber-600 focus:ring-1"
-        /> */
-    }
-    <a
-      href="https://youthacks.fillout.com/t/4QcFNNsAArus"
-      target="_blank"
+  <form
+    action="https://youthacks.fillout.com/t/4QcFNNsAArus"
+    class="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2"
+  >
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="joe@example.com"
+      class="h-10 w-full max-w-80 flex-none rounded-full border border-neutral-300 bg-white px-5 shadow-xs ring-amber-600 transition outline-none focus:border-amber-600 focus:ring-1"
+    />
+    <button
+      type="submit"
       class={cta({
         color,
         class:
@@ -47,6 +49,6 @@ const { color } = Astro.props;
         class="size-4 transition-transform group-hover:translate-x-0.5"
         stroke-width={3}
       />
-    </a>
-  </div>
+    </button>
+  </form>
 </div>
