@@ -1,0 +1,106 @@
+---
+import LuArrowDown from "~/assets/icons/LuArrowDown.svg";
+
+import TogetherDoodle from "~/assets/scribbles/index-together.svg";
+
+import HeroBackground from "~/components/home-hero/Background.svelte";
+import HeroTitle from "~/components/home-hero/Title.svelte";
+
+import { Image } from "astro:assets";
+import bento1 from "~/assets/images/hero-scrapyard-cambridge.jpg";
+import bento2 from "~/assets/events/coolashack-2.jpg";
+import bento3 from "~/assets/events/counterspell-cam-1.jpg";
+import bento4 from "~/assets/events/scrapyard-lon-1.jpg";
+import bento5 from "~/assets/events/coolashack-3.jpg";
+---
+
+<div class="relative isolate pt-20">
+  <div
+    class="absolute inset-0 -z-10 bg-red-200 [clip-path:inset(0_0_1.5rem_0)]"
+  >
+  </div>
+  <HeroBackground
+    color="red"
+    class="[clip-path:inset(0_0_1.5rem_0)]"
+    client:idle
+  />
+
+  <div class="mx-auto max-w-7xl">
+    <div class="px-8 py-16 text-center">
+      <HeroTitle client:idle />
+      <p
+        class="mx-auto mt-4 max-w-3xl text-lg text-balance max-lg:mx-auto sm:text-xl"
+      >
+        We support and run hackathons for teens, and create safe spaces where
+        young coders can thrive, <span class="relative font-semibold">
+          together.
+          <TogetherDoodle
+            class="absolute inset-x-0 -bottom-1.5 h-auto w-full"
+          />
+        </span>
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 sm:mt-6">
+        <a
+          href="/donate"
+          class="flex h-10 flex-none items-center gap-2 rounded-full bg-red-800 px-5 font-semibold text-white shadow-sm transition hover:bg-red-900 sm:h-12 sm:px-6 sm:text-lg"
+        >
+          <span>Donate</span>
+        </a>
+        <button
+          onclick="scrollToEvents()"
+          class="flex h-10 flex-none items-center gap-2 rounded-full border-2 border-red-800 px-5 font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white sm:h-12 sm:px-6 sm:text-lg"
+        >
+          <span>See our events</span>
+          <LuArrowDown
+            class="size-4 transition-transform group-hover:translate-x-0.5"
+            stroke-width={3}
+          />
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="grid grid-cols-1 grid-rows-3 gap-4 px-8 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <div
+        class="col-start-1 row-span-2 row-start-1 min-h-48 contain-size md:col-span-2"
+      >
+        <Image
+          src={bento1}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+      <div class="col-start-1 row-start-3 min-h-48 contain-size">
+        <Image
+          src={bento2}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+      <div class="col-start-2 row-start-3 min-h-48 contain-size max-md:hidden">
+        <Image
+          src={bento3}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+      <div class="col-start-3 row-start-1 min-h-48 contain-size max-lg:hidden">
+        <Image
+          src={bento4}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+      <div
+        class="col-start-3 row-span-2 row-start-2 min-h-48 contain-size max-lg:hidden"
+      >
+        <Image
+          src={bento5}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+    </div>
+  </div>
+</div>

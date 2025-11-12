@@ -12,8 +12,11 @@
   import LuMenu from "~/assets/icons/LuMenu.svelte";
   import { expoIn, expoOut } from "svelte/easing";
 
-  type Link = { label: string; href: string };
-  const { links }: { links: Link[] } = $props();
+  const NAVBAR_LINKS = [
+    { label: "Events", href: "/events" },
+    { label: "Support us", href: "/donate" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   let showNavBg = $state(false);
   let isMenuOpen = $state(false);
@@ -81,7 +84,7 @@
       <div
         class={cx("group flex h-12 items-center gap-2.5 text-lg max-sm:hidden")}
       >
-        {#each links as { label, href }, i}
+        {#each NAVBAR_LINKS as { label, href }, i}
           {#if i > 0}
             <span class="pointer-events-none text-black/50">&middot;</span>
           {/if}
@@ -151,7 +154,7 @@
           </button>
         </div>
         <div class="space-y-3 border-t border-neutral-300 pt-6">
-          {#each links as { label, href }}
+          {#each NAVBAR_LINKS as { label, href }}
             {#if href === "#contact"}
               <ContactButton
                 class="block max-w-fit text-xl font-semibold underline-offset-2 transition not-hover:group-has-hover:opacity-75 hover:underline"
