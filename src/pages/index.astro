@@ -101,14 +101,4 @@ const futureEvents = await getCollection("events", (item) =>
     </div>
   </div>
   <Footer />
-
-  <script is:inline>
-    function scrollToEvents() {
-      const el = document.querySelector("#events");
-      if (!el) return;
-
-      const y = el.getBoundingClientRect().top + window.pageYOffset - 96;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  </script>
 </Layout>
