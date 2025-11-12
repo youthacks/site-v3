@@ -58,6 +58,13 @@ export default defineConfig({
         weights: ["700", "900"],
         subsets: ["latin"],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Homemade Apple",
+        cssVariable: "--font-cursive",
+        weights: ["400"],
+        subsets: ["latin"],
+      },
     ],
   },
 

@@ -6,18 +6,15 @@ import Layout from "../layouts/Layout.astro";
 
 import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
 
-import MissionDoodle from "~/assets/scribbles/index-mission.svg";
-
-import Card from "~/components/cards/Card.astro";
 import Navbar from "~/components/navbar/Navbar.svelte";
-import HomeHero from "~/components/home-hero/HomeHero.astro";
+import HomeHero from "~/components/home/Hero.astro";
 import Footer from "~/components/Footer.astro";
 
 import EventCard from "~/components/events/EventCard.astro";
-import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
 import Empty from "~/components/events/Empty.astro";
-
-const partners = await getCollection("partners");
+import Mission from "~/components/home/Mission.astro";
+import Partners from "~/components/home/Partners.astro";
+import Upcoming from "~/components/home/Upcoming.astro";
 
 const futureEvents = await getCollection("events", (item) =>
   dayjs(item.data.startDate).isAfter(dayjs()),
@@ -33,72 +30,11 @@ const futureEvents = await getCollection("events", (item) =>
 
   <HomeHero />
 
-  <div class="mx-auto max-w-7xl space-y-12 p-8">
-    <div id="events">
-      <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">
-        Coming up
-      </h2>
-      <div class="mt-6 space-y-6">
-        {futureEvents.map((event) => <EventCard item={event} />)}
-        {futureEvents.length === 0 && <Empty color="red" />}
-      </div>
-      <div class="mt-6 flex justify-center">
-        <a
-          href="/events"
-          class="group flex items-center gap-2 font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline sm:text-lg lg:text-xl"
-        >
-          <span>View past events</span>
-          <LuArrowRight
-            class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
-            stroke-width={3}
-          />
-        </a>
-      </div>
-    </div>
-    <Card title="Our mission">
-      <h2 slot="title" class="font-satoshi text-2xl font-bold sm:text-3xl">
-        Our <span class="relative isolate">
-          mission
-          <span class="absolute -inset-x-1.5 -bottom-0.5 -z-10">
-            <MissionDoodle class="h-auto w-full" />
-          </span>
-        </span>
-      </h2>
-      <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
-        <p>
-          Hackathons are social coding events, where people can get together,
-          make new friends, and work on amazing projects, no matter their skill
-          level. That’s what we’re all about.
-        </p>
-        <p class="mt-3">
-          Our purpose is to support student-led hackathons - where young coders
-          have a safe space to learn and thrive together. A space just for them,
-          run by them.
-        </p>
-        <p class="mt-3">Like the idea? We’d love your help.</p>
-        <div class="mt-1 flex items-center gap-4">
-          <a
-            href="/donate"
-            class="group flex items-center gap-2 font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline"
-          >
-            <span>Support our work</span>
-            <LuArrowRight
-              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
-              stroke-width={3}
-            />
-          </a>
-        </div>
-      </div>
-    </Card>
-    <div class="text-center">
-      <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Past partners</h2>
-      <p class="mt-1.5 text-pretty text-neutral-600 sm:mt-2 sm:text-lg">
-        Amazing organisations we've worked with to bring our events to life.
-      </p>
-      <div class="mt-4">
-        <PartnersMarquee partners={partners} client:idle />
-      </div>
-    </div>
+  <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
+    <Upcoming />
+    <Mission />
+    <Partners />
   </div>
+
   <Footer />
 </Layout>

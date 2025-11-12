@@ -3,8 +3,8 @@ import LuArrowDown from "~/assets/icons/LuArrowDown.svg";
 
 import TogetherDoodle from "~/assets/scribbles/index-together.svg";
 
-import HeroBackground from "~/components/home-hero/Background.svelte";
-import HeroTitle from "~/components/home-hero/Title.svelte";
+import HeroBackground from "~/components/hero/Background.svelte";
+import HeroTitle from "./HeroTitle.svelte";
 
 import { Image } from "astro:assets";
 import bento1 from "~/assets/images/hero-scrapyard-cambridge.jpg";
@@ -50,7 +50,7 @@ import bento5 from "~/assets/events/coolashack-3.jpg";
           onclick="scrollToEvents()"
           class="flex h-10 flex-none items-center gap-2 rounded-full border-2 border-red-800 px-5 font-semibold text-red-800 backdrop-blur-xs transition hover:bg-red-800 hover:text-white sm:h-12 sm:px-6 sm:text-lg"
         >
-          <span>See our events</span>
+          <span>Upcoming events</span>
           <LuArrowDown
             class="size-4 transition-transform group-hover:translate-x-0.5"
             stroke-width={3}

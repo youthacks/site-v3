@@ -4,6 +4,7 @@
 @theme inline {
   --font-sans: var(--font-sans);
   --font-satoshi: var(--font-satoshi);
+  --font-cursive: var(--font-cursive);
 
   --animate-blink: blink 1.5s step-start infinite;
 }
@@ -19,7 +20,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth bg-neutral-50;
+    @apply scroll-smooth;
   }
   body,
   .font-sans {

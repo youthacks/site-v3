@@ -82,6 +82,7 @@
 </script>
 
 <div
+  {...props}
   bind:offsetWidth
   bind:offsetHeight
   class={[
