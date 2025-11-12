@@ -19,20 +19,21 @@
   }
 
   const changeWord = async () => {
-    await new Promise((r) => setTimeout(r, 2000));
+    await new Promise((r) => setTimeout(r, 3000));
 
     isChanging = true;
     let word = words[currentWordIndex];
     for (let i = word.length; i >= 0; i--) {
       currentWord = word.slice(0, i);
-      await sleepRandom(50, 75);
+      await sleepRandom(25, 50);
     }
+    await new Promise((r) => setTimeout(r, 250));
 
     currentWordIndex = (currentWordIndex + 1) % words.length;
     word = words[currentWordIndex];
     for (let i = 0; i <= word.length; i++) {
       currentWord = word.slice(0, i);
-      await sleepRandom(50, 125);
+      await sleepRandom(50, 100);
     }
 
     isChanging = false;
