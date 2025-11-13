@@ -17,11 +17,7 @@ import Partners from "~/components/home/Partners.astro";
   <Navbar client:load />
 
   <div class="relative isolate bg-cyan-200 pt-20">
-    <HeroBackground
-      color="cyan"
-      class="[clip-path:inset(0_0_1.5rem_0)]"
-      client:idle
-    />
+    <HeroBackground color="cyan" client:idle />
     <div class="mx-auto max-w-7xl px-8 py-16 text-center">
       <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
         <span class="relative isolate"
