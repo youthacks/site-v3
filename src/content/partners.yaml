@@ -12,6 +12,7 @@
   title: "Hack Club"
   logo: ~/assets/logos/partners/hackclub.png
   url: https://www.hackclub.com/
+  hidden: true
 
 - id: ada
   title: "Ada"

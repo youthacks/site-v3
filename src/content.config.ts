@@ -50,6 +50,7 @@ const partners = defineCollection({
       title: z.string(),
       logo: image(),
       url: z.string().url(),
+      hidden: z.boolean().default(false),
     }),
 });
 

@@ -3,7 +3,10 @@ import { getCollection } from "astro:content";
 
 import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
 
-const partners = await getCollection("partners");
+const partners = await getCollection(
+  "partners",
+  (partner) => !partner.data.hidden,
+);
 ---
 
 <section>
