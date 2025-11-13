@@ -1,28 +1,14 @@
 ---
-import { getCollection } from "astro:content";
-import dayjs from "~/lib/dayjs";
-
 import Layout from "../layouts/Layout.astro";
-
-import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
 
 import Navbar from "~/components/navbar/Navbar.svelte";
 import HomeHero from "~/components/home/Hero.astro";
 import Footer from "~/components/Footer.astro";
 
-import EventCard from "~/components/events/EventCard.astro";
-import Empty from "~/components/events/Empty.astro";
-import Mission from "~/components/home/Mission.astro";
-import Partners from "~/components/home/Partners.astro";
 import Upcoming from "~/components/home/Upcoming.astro";
-
-const futureEvents = await getCollection("events", (item) =>
-  dayjs(item.data.startDate).isAfter(dayjs()),
-).then((items) =>
-  items.sort((a, b) =>
-    dayjs(a.data.startDate).isBefore(dayjs(b.data.startDate)) ? -1 : 1,
-  ),
-);
+import Mission from "~/components/home/Mission.astro";
+import Impact from "~/components/home/Impact.astro";
+import Partners from "~/components/home/Partners.astro";
 ---
 
 <Layout pageTitle="Home">
@@ -33,6 +19,7 @@ const futureEvents = await getCollection("events", (item) =>
   <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
     <Upcoming />
     <Mission />
+    <Impact />
     <Partners />
   </div>
 
