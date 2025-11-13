@@ -35,7 +35,10 @@
   };
 </script>
 
-<div class="relative flex overflow-x-clip">
+<div
+  class="relative flex overflow-x-clip"
+  style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+>
   <div bind:this={outerEl} class="flex">
     <div bind:offsetWidth class="flex flex-none">
       {@render list()}
@@ -44,13 +47,6 @@
       {@render list()}
     </div>
   </div>
-
-  <div
-    class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-50"
-  ></div>
-  <div
-    class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-neutral-50"
-  ></div>
 </div>
 
 {#snippet list()}
