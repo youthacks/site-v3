@@ -1,54 +1,42 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-
 import Layout from "../layouts/Layout.astro";
-
-import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+import HeroBackground from "~/components/hero/Background.svelte";
 
 import SupportDoodle from "~/assets/scribbles/support-us-support.svg";
 import UsDoodle from "~/assets/scribbles/support-us-us.svg";
 
-import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
-import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
-import scrapyardCam from "~/assets/images/scrapyard-cam/image-1.jpg";
-import counterspellCam from "~/assets/images/counterspell-cam/image-1.jpg";
-
-import Card from "~/components/cards/Card.astro";
+import Navbar from "~/components/navbar/Navbar.svelte";
 import Footer from "~/components/Footer.astro";
-import Header from "~/components/header/Header.astro";
 
-import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
-import dayjs from "dayjs";
-import { formatDates } from "~/lib/events";
 import Volunteer from "~/components/donate/Volunteer.astro";
 import Donate_ from "~/components/donate/Donate.astro";
 import Partners from "~/components/home/Partners.astro";
-
-const partners = await getCollection("partners");
-
-const events = await getCollection("events");
-const nextEvent = events
-  .filter((item) => dayjs(item.data.startDate).isAfter(dayjs()))
-  .sort((a, b) =>
-    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? 1 : -1,
-  )[0];
 ---
 
 <Layout pageTitle="Support us">
-  <Header color="cyan">
-    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
-      <span class="relative isolate"
-        >Support<SupportDoodle
-          class="absolute inset-x-0 -bottom-2 -z-10 h-auto w-full translate-x-0.5"
-        /></span
-      >
-      <span class="relative isolate">
-        us
-        <UsDoodle class="absolute top-4 -right-3 -z-10 h-auto w-3" />
-      </span>
-    </h1>
-  </Header>
+  <Navbar client:load />
+
+  <div class="relative isolate bg-cyan-200 pt-20">
+    <HeroBackground
+      color="cyan"
+      class="[clip-path:inset(0_0_1.5rem_0)]"
+      client:idle
+    />
+    <div class="mx-auto max-w-7xl px-8 py-16 text-center">
+      <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
+        <span class="relative isolate"
+          >Support<SupportDoodle
+            class="absolute inset-x-0 -bottom-2 -z-10 h-auto w-full translate-x-0.5"
+          /></span
+        >
+        <span class="relative isolate">
+          us
+          <UsDoodle class="absolute top-4 -right-3 -z-10 h-auto w-3" />
+        </span>
+      </h1>
+    </div>
+  </div>
+
   <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
     <Volunteer />
     <Donate_ />
