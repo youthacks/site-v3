@@ -14,6 +14,7 @@
 
   const NAVBAR_LINKS = [
     { label: "Events", href: "/events" },
+    { label: "About us", href: "/about" },
     { label: "Support us", href: "/donate" },
     { label: "Contact", href: "#contact" },
   ];
