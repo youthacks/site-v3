@@ -1,9 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HeroBackground from "~/components/hero/Background.svelte";
-
-import SupportDoodle from "~/assets/scribbles/support-us-support.svg";
-import UsDoodle from "~/assets/scribbles/support-us-us.svg";
 
 import Navbar from "~/components/navbar/Navbar.svelte";
 import Footer from "~/components/Footer.astro";
@@ -11,6 +7,7 @@ import Footer from "~/components/Footer.astro";
 import Mission from "~/components/about/Mission.astro";
 
 import Hero from "~/components/about/Hero.astro";
+import People from "~/components/about/People.astro";
 ---
 
 <Layout pageTitle="About">
@@ -19,6 +16,7 @@ import Hero from "~/components/about/Hero.astro";
 
   <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
     <Mission />
+    <People />
   </div>
   <Footer />
 </Layout>
