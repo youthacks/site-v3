@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import bento1 from "~/assets/events/coolashack-5.jpg";
+import bento2 from "~/assets/events/coolashack-7.jpg";
+---
+
+<div class="relative isolate pt-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="px-8 py-16 text-center">
+      <p class="mb-4 font-medium text-red-800 md:text-lg lg:text-xl">
+        Our north star
+      </p>
+      <h1
+        class="font-satoshi text-6xl font-black tracking-tighter md:text-7xl lg:text-8xl"
+      >
+        Inspiring a<br />
+        <span class="relative inline-block text-red-800">
+          new generation
+          <div
+            class="absolute top-1/2 left-1/2 -z-10 mt-2 grid size-128 -translate-x-1/2 -translate-y-1/2 scale-60 grid-cols-1 grid-rows-1 place-items-center md:mt-2.5 md:scale-75 lg:mt-3 lg:scale-100"
+          >
+            <div
+              class="relative col-start-1 row-start-1 size-128 rounded-full bg-radial from-white to-red-200 opacity-15"
+            >
+            </div>
+            <div
+              class="relative col-start-1 row-start-1 size-96 rounded-full bg-radial from-white to-red-200 opacity-30"
+            >
+            </div>
+            <div
+              class="relative col-start-1 row-start-1 size-64 rounded-full bg-radial from-white to-red-200 opacity-60"
+            >
+            </div>
+            <div
+              class="relative col-start-1 row-start-1 size-32 rounded-full bg-radial from-white to-red-200"
+            >
+            </div>
+          </div>
+        </span><br />
+        of makers.
+      </h1>
+    </div>
+    <div class="grid grid-cols-2 gap-4 px-8">
+      <div class="min-h-64 contain-size lg:min-h-80">
+        <Image
+          src={bento1}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+      <div class="min-h-64 contain-size lg:min-h-80">
+        <Image
+          src={bento2}
+          alt=""
+          class="size-full rounded-lg object-cover object-center shadow-md"
+        />
+      </div>
+    </div>
+  </div>
+</div>

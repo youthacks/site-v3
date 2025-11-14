@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroBackground from "~/components/hero/Background.svelte";
+
+import SupportDoodle from "~/assets/scribbles/support-us-support.svg";
+import UsDoodle from "~/assets/scribbles/support-us-us.svg";
+
+import Navbar from "~/components/navbar/Navbar.svelte";
+import Footer from "~/components/Footer.astro";
+
+import Mission from "~/components/about/Mission.astro";
+
+import Hero from "~/components/about/Hero.astro";
+---
+
+<Layout pageTitle="About">
+  <Navbar client:load />
+  <Hero />
+
+  <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
+    <Mission />
+  </div>
+  <Footer />
+</Layout>
