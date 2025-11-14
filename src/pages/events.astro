@@ -1,59 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroBackground from "~/components/hero/Background.svelte";
 
 import TitleDoodle from "~/assets/scribbles/events-events.svg";
 
+import Navbar from "~/components/navbar/Navbar.svelte";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/header/Header.astro";
-import EventCard from "~/components/events/EventCard.astro";
-import { getCollection } from "astro:content";
-import dayjs from "~/lib/dayjs";
-import Empty from "~/components/events/Empty.astro";
-import PastEventCard from "~/components/events/PastEventCard.astro";
 
-const upcomingEvents = await getCollection(
-  "events",
-  (i) => !i.data.concluded,
-).then((items) =>
-  items.filter((i) => !dayjs(i.data.startDate).isBefore(dayjs())),
-);
-const pastEvents = await getCollection("events", (i) => i.data.concluded).then(
-  (items) =>
-    items.sort((a, b) =>
-      dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? -1 : 1,
-    ),
-);
+import Upcoming from "~/components/home/Upcoming.astro";
+import Past from "~/components/events/Past.astro";
 ---
 
 <Layout pageTitle="Events">
-  <Header color="amber">
-    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
-      <span class="relative isolate">
-        Events
-        <TitleDoodle
-          class="absolute inset-x-0 bottom-0 -z-10 h-auto w-full translate-x-0.5"
-        />
-      </span>
-    </h1>
-  </Header>
-  <div class="mx-auto max-w-7xl space-y-12 p-8">
-    <div class="space-y-6">
-      {upcomingEvents.map((event) => <EventCard item={event} />)}
-      {upcomingEvents.length === 0 && <Empty color="amber" />}
+  <Navbar client:load />
+
+  <div class="relative isolate bg-amber-200 pt-20">
+    <HeroBackground color="amber" client:idle />
+    <div class="mx-auto max-w-7xl px-8 py-16 text-center">
+      <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
+        <span class="relative isolate">
+          Events
+          <TitleDoodle
+            class="absolute inset-x-0 bottom-0 -z-10 h-auto w-full translate-x-0.5"
+          />
+        </span>
+      </h1>
     </div>
-    <div>
-      <h2 class="font-satoshi text-center text-2xl font-bold sm:text-3xl">
-        Past events
-      </h2>
-      {
-        /* <div class="mt-6 space-y-6">
-        {pastEvents.map((event) => <EventCard item={event} />)}
-      </div> */
-      }
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        {pastEvents.map((event) => <PastEventCard item={event} />)}
-      </div>
-    </div>
+  </div>
+
+  <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
+    <Upcoming color="amber" hideViewMore />
+    <Past />
   </div>
 
   <Footer />
