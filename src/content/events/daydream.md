@@ -1,9 +1,15 @@
 ---
 title: Daydream
-description: All-day game jams in London, Cambridge, Brighton, Manchester and South Wales. Work together to make amazing games, alongside young people in 100+ cities worldwide.
+description: All-day game jams in 5 cities, where teens worked together to make amazing games, alongside events in 100+ other cities worldwide in a global event by Hack Club.
 startDate: 2025-09-27
 endDate: 2025-09-28
 with: Hack Club
+locations:
+  - London
+  - Cambridge
+  - Brighton
+  - Manchester
+  - South Wales
 
 logo: ~/assets/images/daydream/logo.png
 artwork: ~/assets/images/daydream/banner.png
@@ -37,9 +43,9 @@ partners:
   - cardiff-youth
 ---
 
-We were thrilled to run Daydream in the UK in September 2025. These were all-day hackathons and held in London, Cambridge, Brighton, Manchester and South Wales.
-Teams of teenagers worked together over around 8 hours to make a new game from scratch, with the theme _'sacrifices must be made'_. Over 100 people attended in total, and every group shipped a game by the end of the day - in return, we gave out free food, prizes, stickers, and exclusive t-shirts.
+We were thrilled to run Daydream in the UK in September 2025. These were all-day hackathons we held in London, Cambridge, Brighton, Manchester and South Wales.
+Teams of teenagers worked together over 12 hours to make a new game from scratch, with the theme _'sacrifices must be made'_. Over 100 people attended in total, and every group shipped a game by the end of the day - in return, we gave out free food, prizes, stickers, and exclusive t-shirts.
 
 This was part of Daydream, a global game jam run by Hack Club, with teens in 100+ cities worldwide all taking part + making a game in one weekend.
 
-A huge thank you to all our sponsors, and our venue partners Ada College, Raspberry Pi Foundation, Brighton Youth Centre and Cardiff Youth Service, for making this event possible!
+A huge thank you to all our sponsors, and our venue partners - Ada, the National College for Digital Skills, Raspberry Pi Foundation, Brighton Youth Centre and Cardiff Youth Service - for making this event possible!

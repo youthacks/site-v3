@@ -12,6 +12,10 @@ const pastEvents = await getCollection(
     dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? -1 : 1,
   ),
 );
+const eventsTotal = pastEvents.reduce(
+  (acc, { data }) => acc + data.locations.length,
+  0,
+);
 ---
 
 <section>
@@ -26,7 +30,7 @@ const pastEvents = await getCollection(
         <p
           class="font-satoshi text-2xl font-bold text-red-800 sm:text-3xl lg:text-4xl"
         >
-          {pastEvents.length}
+          {eventsTotal}
         </p>
         <p class="text-sm sm:text-base lg:mt-0.5 lg:text-lg">
           events ran since 2024
@@ -38,7 +42,7 @@ const pastEvents = await getCollection(
         <p
           class="font-satoshi text-2xl font-bold text-amber-800 sm:text-3xl lg:text-4xl"
         >
-          100+
+          300+
         </p>
         <p class="text-sm sm:text-base lg:mt-0.5 lg:text-lg">
           young people attended
@@ -53,7 +57,7 @@ const pastEvents = await getCollection(
           Lots
         </p>
         <p class="text-sm sm:text-base lg:mt-0.5 lg:text-lg">
-          of prizes given out
+          of swag given out
         </p>
       </div>
       {

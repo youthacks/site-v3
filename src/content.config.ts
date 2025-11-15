@@ -11,6 +11,7 @@ const events = defineCollection({
         startDate: z.coerce.date(),
         endDate: z.coerce.date().optional(),
         with: z.string().optional(),
+        locations: z.array(z.string()).min(1),
 
         logo: image(),
         artwork: image(),

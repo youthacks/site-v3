@@ -34,6 +34,16 @@ const partners = await getEntries(event.data.partners).then((items) =>
   items.filter(Boolean),
 );
 const { Content } = await render(event);
+
+function formatLocations(locations: string[]) {
+  if (locations.length === 1) {
+    return locations[0];
+  } else if (locations.length === 2) {
+    return locations.join(" and ");
+  } else {
+    return locations.slice(0, -1).join(", ") + ", and " + locations.at(-1);
+  }
+}
 ---
 
 <Layout pageTitle={event.data.title}>
@@ -87,6 +97,14 @@ const { Content } = await render(event);
           <p class="font-semibold sm:text-lg">Date</p>
           <p class="mt-1 text-neutral-600">
             {formatDates(event.data.startDate, event.data.endDate)}
+          </p>
+        </div>
+        <div>
+          <p class="font-semibold sm:text-lg">
+            {event.data.locations.length > 1 ? "Locations" : "Location"}
+          </p>
+          <p class="mt-1 text-neutral-600">
+            {formatLocations(event.data.locations)}
           </p>
         </div>
         <div>

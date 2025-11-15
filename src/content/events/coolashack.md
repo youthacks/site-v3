@@ -1,8 +1,10 @@
 ---
 title: Cool As Hack
-description: An all-day hackathon at Raspberry Pi HQ, where teens worked together to make novel and interesting projects. Part of Coolest Projects, an annual global competition for young people to make.
+description: An all-day hackathon at Raspberry Pi Foundation HQ, where teens worked together to make novel and interesting projects. Part of Coolest Projects, an annual global showcase for young people.
 startDate: 2025-04-25
-with: Raspberry Pi
+with: Raspberry Pi Foundation
+locations:
+  - Cambridge
 
 logo: ~/assets/images/coolashack/logo.png
 artwork: ~/assets/images/coolashack/banner.png
@@ -27,7 +29,6 @@ partners:
   - aromi-cucina
 ---
 
-We were super excited to run Cool as Hack, an all-day hackathon with Raspberry Pi, in April 2025. This was our first event organised completely by us, and was held at Raspberry Pi HQ in Cambridge, UK.
+We were super excited to run Cool as Hack, an all-day hackathon, in April 2025. This was our first event organised completely by us, and was held at Raspberry Pi Foundation HQ in Cambridge, UK.
 
-Teams of teenagers worked together over around 8 hours to make new and interesting projects, which they could then submit to Coolest Projects, an annual global competition for young people to make.
-We had a fantastic time seeing everyone's creativity!
+Teams of teenagers worked together over 12 hours to make new and interesting projects, which they could then submit to Coolest Projects, an annual global showcase run by Raspberry Pi where young people can share their ideas with the world. We had a fantastic time seeing everyone's creativity!
