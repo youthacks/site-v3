@@ -46,7 +46,8 @@
 </script>
 
 <h1
-  class={"font-satoshi text-6xl font-black tracking-tighter md:text-7xl lg:text-8xl"}
+  class={"font-satoshi animate-slide-up text-6xl font-black tracking-tighter md:text-7xl lg:text-8xl"}
+  style:animation-delay="0.2s"
 >
   <span>We are</span><br class="sm:hidden" />
   <span class="text-red-800">

@@ -29,7 +29,8 @@ import bento5 from "~/assets/events/coolashack-3.jpg";
     <div class="px-8 py-16 text-center">
       <HeroTitle client:idle />
       <p
-        class="mx-auto mt-4 max-w-3xl text-lg leading-normal text-balance sm:text-xl"
+        class="animate-slide-up mx-auto mt-4 max-w-3xl text-lg leading-normal text-balance sm:text-xl"
+        style="animation-delay: 0.4s"
       >
         We support and run hackathons for teens, and create safe spaces where
         young coders can thrive, <span class="relative font-semibold">
@@ -39,7 +40,10 @@ import bento5 from "~/assets/events/coolashack-3.jpg";
           />
         </span>
       </p>
-      <div class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 sm:mt-6">
+      <div
+        class="animate-slide-up mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 sm:mt-6"
+        style="animation-delay: 0.5s"
+      >
         <a
           href="/donate"
           class="flex h-10 flex-none items-center gap-2 rounded-full bg-red-800 px-5 font-semibold text-white shadow-sm transition hover:bg-red-900 sm:h-12 sm:px-6 sm:text-lg"
@@ -68,28 +72,44 @@ import bento5 from "~/assets/events/coolashack-3.jpg";
         <Image
           src={bento1}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 0.8s"
+          widths={[720, 960, bento1.width]}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          priority
         />
       </div>
       <div class="col-start-1 row-start-3 min-h-48 contain-size">
         <Image
           src={bento2}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 0.9s"
+          widths={[720, 960, bento1.width]}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority
         />
       </div>
       <div class="col-start-2 row-start-3 min-h-48 contain-size max-md:hidden">
         <Image
           src={bento3}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 1.0s"
+          widths={[720, 960, bento1.width]}
+          sizes="(max-width: 1024px) 50vw, 33vw"
+          priority
         />
       </div>
       <div class="col-start-3 row-start-1 min-h-48 contain-size max-lg:hidden">
         <Image
           src={bento4}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 1.1s"
+          widths={[720, 960, bento1.width]}
+          sizes="(max-width: 1024px) 50vw, 33vw"
+          priority
         />
       </div>
       <div
@@ -98,7 +118,11 @@ import bento5 from "~/assets/events/coolashack-3.jpg";
         <Image
           src={bento5}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 1.2s"
+          widths={[720, 960, bento1.width]}
+          sizes="(max-width: 1024px) 50vw, 33vw"
+          priority
         />
       </div>
     </div>

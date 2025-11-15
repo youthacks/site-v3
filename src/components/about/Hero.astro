@@ -7,17 +7,27 @@ import bento2 from "~/assets/events/coolashack-7.jpg";
 <div class="relative isolate pt-20">
   <div class="mx-auto max-w-7xl">
     <div class="px-8 py-16 text-center">
-      <p class="mb-4 font-medium text-red-800 md:text-lg lg:text-xl">
+      <p
+        class="animate-slide-up mb-4 font-medium text-red-800 md:text-lg lg:text-xl"
+        style="animation-delay: 0.2s;"
+      >
         Our north star
       </p>
       <h1
         class="font-satoshi text-6xl font-black tracking-tighter md:text-7xl lg:text-8xl"
       >
-        Inspiring a<br />
-        <span class="relative inline-block text-red-800">
+        <span
+          class="animate-slide-up inline-block"
+          style="animation-delay: 0.4s;">Inspiring a</span
+        ><br />
+        <span
+          class="animate-slide-up relative isolate -z-10 inline-block text-red-800"
+          style="animation-delay: 0.5s;"
+        >
           new generation
           <div
-            class="absolute top-1/2 left-1/2 -z-10 mt-2 grid size-128 -translate-x-1/2 -translate-y-1/2 scale-60 grid-cols-1 grid-rows-1 place-items-center md:mt-2.5 md:scale-75 lg:mt-3 lg:scale-100"
+            class="animate-scale absolute top-1/2 left-1/2 -z-10 mt-2 grid size-128 -translate-x-1/2 -translate-y-1/2 scale-60 grid-cols-1 grid-rows-1 place-items-center md:mt-2.5 md:scale-75 lg:mt-3 lg:scale-100"
+            style="animation-delay: 0.6s;"
           >
             <div
               class="relative col-start-1 row-start-1 size-128 rounded-full bg-radial from-white to-red-200 opacity-15"
@@ -37,7 +47,10 @@ import bento2 from "~/assets/events/coolashack-7.jpg";
             </div>
           </div>
         </span><br />
-        of makers.
+        <span
+          class="animate-slide-up inline-block"
+          style="animation-delay: 0.6s;">of makers.</span
+        >
       </h1>
     </div>
     <div class="grid grid-cols-2 gap-4 px-8">
@@ -45,14 +58,20 @@ import bento2 from "~/assets/events/coolashack-7.jpg";
         <Image
           src={bento1}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 0.8s;"
+          widths={[720, 960, bento1.width]}
+          sizes="50vw"
         />
       </div>
       <div class="min-h-64 contain-size lg:min-h-80">
         <Image
           src={bento2}
           alt=""
-          class="size-full rounded-lg object-cover object-center shadow-md"
+          class="animate-slide-up-blur size-full rounded-lg object-cover object-center shadow-md"
+          style="animation-delay: 0.9s;"
+          widths={[720, 960, bento1.width]}
+          sizes="50vw"
         />
       </div>
     </div>
