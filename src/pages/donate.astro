@@ -1,137 +1,42 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-
 import Layout from "../layouts/Layout.astro";
-
-import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+import HeroBackground from "~/components/hero/Background.svelte";
 
 import SupportDoodle from "~/assets/scribbles/support-us-support.svg";
 import UsDoodle from "~/assets/scribbles/support-us-us.svg";
 
-import coolAsHack from "~/assets/images/coolashack/image-2.jpg";
-import scrapyardLon from "~/assets/images/scrapyard-lon/image-1.jpg";
-import scrapyardCam from "~/assets/images/scrapyard-cam/image-1.jpg";
-import counterspellCam from "~/assets/images/counterspell-cam/image-1.jpg";
-
-import Card from "~/components/cards/Card.astro";
+import Navbar from "~/components/navbar/Navbar.svelte";
 import Footer from "~/components/Footer.astro";
-import Header from "~/components/header/Header.astro";
 
-import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
-import dayjs from "dayjs";
-import { formatDates } from "~/lib/events";
-
-const partners = await getCollection("partners");
-
-const events = await getCollection("events");
-const nextEvent = events
-  .filter((item) => dayjs(item.data.startDate).isAfter(dayjs()))
-  .sort((a, b) =>
-    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? 1 : -1,
-  )[0];
+import Volunteer from "~/components/donate/Volunteer.astro";
+import Donate_ from "~/components/donate/Donate.astro";
+import Partners from "~/components/home/Partners.astro";
 ---
 
 <Layout pageTitle="Support us">
-  <Header color="cyan">
-    <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
-      <span class="relative isolate"
-        >Support<SupportDoodle
-          class="absolute inset-x-0 -bottom-2 -z-10 h-auto w-full translate-x-0.5"
-        /></span
-      >
-      <span class="relative isolate">
-        us
-        <UsDoodle class="absolute top-4 -right-3 -z-10 h-auto w-3" />
-      </span>
-    </h1>
-  </Header>
-  <div class="mx-auto max-w-7xl space-y-12 p-8">
-    <div class="space-y-6">
-      <Card title="Volunteer">
-        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
-          <p>
-            We're looking for passionate volunteers to help with our next
-            events. If you’re over 18, can pass an enhanced DBS check, and love
-            helping young people, we’d love to hear from you!
-          </p>
-          <a
-            href="mailto:hello@youthacks.org"
-            class="group mt-1 flex w-fit items-center gap-2 font-semibold text-cyan-800 underline-offset-2 transition hover:text-cyan-900 hover:underline"
-          >
-            <span>hello@youthacks.org</span>
-            <LuArrowRight
-              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
-              stroke-width={3}
-            />
-          </a>
-          {
-            nextEvent && (
-              <p class="mt-3 text-sm text-neutral-600 sm:text-base">
-                <span class="font-semibold">Coming up:</span>
-                {nextEvent.data.title},{" "}
-                {formatDates(nextEvent.data.startDate, nextEvent.data.endDate)}
-              </p>
-            )
-          }
-        </div>
-      </Card>
-      <Card title="Donate">
-        <div class="leading-normal text-neutral-800 sm:text-lg lg:text-xl">
-          <p>
-            Our events are always free to attend for young people. If you’re a
-            company or individual who wants to have a meaningful impact on the
-            next generation of makers, we’d love for you to get involved.
-          </p>
-          <a
-            href="mailto:donate@youthacks.org"
-            class="group mt-1 flex w-fit items-center gap-2 font-semibold text-cyan-800 underline-offset-2 transition hover:text-cyan-900 hover:underline"
-          >
-            <span>donate@youthacks.org</span>
-            <LuArrowRight
-              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
-              stroke-width={3}
-            />
-          </a>
-        </div>
-      </Card>
-    </div>
+  <Navbar client:load />
 
-    <div class="text-center">
-      <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Past sponsors</h2>
-      <p class="mt-1.5 text-pretty text-neutral-600 sm:mt-2 sm:text-lg">
-        Amazing organisations we've worked with to bring our events to life.
-      </p>
-      <div class="mt-4">
-        <PartnersMarquee partners={partners} client:idle />
-      </div>
+  <div class="relative isolate bg-cyan-200 pt-20">
+    <HeroBackground color="cyan" client:idle />
+    <div class="mx-auto max-w-7xl px-8 py-16 text-center">
+      <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
+        <span class="relative isolate"
+          >Support<SupportDoodle
+            class="absolute inset-x-0 -bottom-2 -z-10 h-auto w-full translate-x-0.5"
+          /></span
+        >
+        <span class="relative isolate">
+          us
+          <UsDoodle class="absolute top-4 -right-3 -z-10 h-auto w-3" />
+        </span>
+      </h1>
     </div>
   </div>
-  <div class="flex justify-center gap-4 overflow-x-clip p-8 pt-4">
-    <Image
-      src={coolAsHack}
-      alt=""
-      widths={[240, 480, 720]}
-      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
-    />
-    <Image
-      src={scrapyardLon}
-      alt=""
-      widths={[240, 480, 720]}
-      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
-    />
-    <Image
-      src={scrapyardCam}
-      alt=""
-      widths={[240, 480, 720]}
-      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
-    />
-    <Image
-      src={counterspellCam}
-      alt=""
-      widths={[240, 480, 720]}
-      class="aspect-video h-32 w-auto rounded-md border border-neutral-300 object-cover shadow-sm odd:rotate-1 even:-rotate-1 sm:h-48 lg:h-64 lg:rounded-lg"
-    />
+
+  <div class="divide-y divide-neutral-300 *:even:bg-neutral-50">
+    <Volunteer />
+    <Donate_ />
+    <Partners />
   </div>
   <Footer />
 </Layout>

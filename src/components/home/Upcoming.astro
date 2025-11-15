@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import dayjs from "~/lib/dayjs";
+
+import EventCard from "~/components/events/EventCard.astro";
+import Empty from "~/components/events/Empty.astro";
+
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+
+interface Props {
+  hideViewMore?: boolean;
+  color?: "red" | "amber";
+}
+const { hideViewMore, color = "red" } = Astro.props;
+
+const futureEvents = await getCollection("events", (item) =>
+  dayjs(item.data.startDate).isAfter(dayjs()),
+).then((items) =>
+  items.sort((a, b) =>
+    dayjs(a.data.startDate).isBefore(dayjs(b.data.startDate)) ? -1 : 1,
+  ),
+);
+---
+
+<section id="events">
+  <div class="mx-auto max-w-7xl p-8">
+    <div class="space-y-6">
+      {futureEvents.map((event) => <EventCard item={event} />)}
+      {futureEvents.length === 0 && <Empty color={color} />}
+    </div>
+    {
+      !hideViewMore && (
+        <div class="mt-6 flex justify-center">
+          <a
+            href="/events"
+            class="group flex items-center gap-2 font-semibold text-red-800 underline-offset-2 transition hover:text-red-900 hover:underline sm:text-lg lg:text-xl"
+          >
+            <span>View past events</span>
+            <LuArrowRight
+              class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
+              stroke-width={3}
+            />
+          </a>
+        </div>
+      )
+    }
+  </div>
+</section>

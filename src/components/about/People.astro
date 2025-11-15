@@ -1,0 +1,86 @@
+---
+import LuUser from "~/assets/icons/LuUser.svg";
+
+interface Person {
+  name: string;
+  role: string;
+  imageUrl?: string;
+}
+const people: Person[] = [
+  {
+    name: "Matthew",
+    role: "Co-founder, Organiser",
+  },
+  {
+    name: "David",
+    role: "Co-founder, Organiser",
+    imageUrl: "https://avatars.githubusercontent.com/u/86719656?v=4",
+  },
+  {
+    name: "Alfie",
+    role: "Outreach, Organiser",
+    imageUrl: "https://avatars.githubusercontent.com/u/46057382?v=4",
+  },
+  {
+    name: "Delana",
+    role: "Graphic design",
+    imageUrl: "https://avatars.githubusercontent.com/u/188846221?v=4",
+  },
+  {
+    name: "Esther",
+    role: "Outreach",
+  },
+  {
+    name: "Spencer",
+    role: "Outreach",
+  },
+  {
+    name: "Gideon",
+    role: "Infrastructure",
+    imageUrl: "https://avatars.githubusercontent.com/u/47083178?v=4",
+  },
+  {
+    name: "Josh",
+    role: "Organiser",
+    imageUrl: "https://avatars.githubusercontent.com/u/128097418?v=4",
+  },
+  {
+    name: "William",
+    role: "Photography",
+  },
+  {
+    name: "Derek",
+    role: "Infrastructure",
+    imageUrl: "https://avatars.githubusercontent.com/u/87529592?v=4",
+  },
+];
+---
+
+<section>
+  <div class="mx-auto max-w-7xl p-8 text-center">
+    <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Who we are</h2>
+    <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        people.map((person) => (
+          <div class="flex items-center gap-3 rounded-lg border border-gray-300 bg-white p-4 text-left shadow-sm">
+            {person.imageUrl ? (
+              <img
+                src={person.imageUrl}
+                alt={person.name}
+                class="size-12 rounded-full"
+              />
+            ) : (
+              <div class="grid size-12 place-items-center rounded-full bg-neutral-200">
+                <LuUser class="size-6 text-neutral-400" />
+              </div>
+            )}
+            <div>
+              <h3 class="leading-snug font-semibold">{person.name}</h3>
+              <p class="text-sm leading-snug text-gray-600">{person.role}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

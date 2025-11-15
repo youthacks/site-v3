@@ -23,6 +23,7 @@ images:
   - ~/assets/events/coolashack-7.jpg
 partners:
   - raspberry-pi
+  - github
   - aromi-cucina
 ---
 

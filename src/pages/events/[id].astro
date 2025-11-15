@@ -2,12 +2,18 @@
 import { Image } from "astro:assets";
 import { render } from "astro:content";
 import { getEntries } from "astro:content";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { cva } from "cva";
-import dayjs from "dayjs";
-import Footer from "~/components/Footer.astro";
-import Header from "~/components/header/Header.astro";
+import { getCollection } from "astro:content";
+
 import Layout from "~/layouts/Layout.astro";
+import HeroBackground from "~/components/hero/Background.svelte";
+
+import LuArrowLeft from "~/assets/icons/LuArrowLeft.svg";
+
+import Navbar from "~/components/navbar/Navbar.svelte";
+import Footer from "~/components/Footer.astro";
+
+import ImageCarousel from "~/components/events/ImageCarousel.svelte";
+
 import { formatDates } from "~/lib/events";
 
 export async function getStaticPaths() {
@@ -28,140 +34,97 @@ const partners = await getEntries(event.data.partners).then((items) =>
   items.filter(Boolean),
 );
 const { Content } = await render(event);
-
-type ColorKey = CollectionEntry<"events">["data"]["colors"]["main"];
-const tag = cva({
-  base: "border-2",
-  variants: {
-    color: {
-      pink: "border-pink-800 text-pink-800",
-      red: "border-red-800 text-red-800",
-      blue: "border-blue-800 text-blue-800",
-      emerald: "border-emerald-800 text-emerald-800",
-    } satisfies Record<ColorKey, string>,
-  },
-});
 ---
 
-<Layout pageTitle="Home">
-  <Header color={event.data.colors.main} coverImage={event.data.images[0]}>
-    <div
-      class={tag({
-        color: event.data.colors.main,
-        class:
-          "mb-4 max-lg:mx-auto w-fit px-2 rounded-full font-semibold uppercase",
-      })}
-    >
-      Event
+<Layout pageTitle={event.data.title}>
+  <Navbar client:load />
+
+  <div class="relative isolate bg-amber-200 pt-20">
+    <HeroBackground color="amber" client:idle />
+    <div class="mx-auto max-w-7xl px-8 py-16 text-center">
+      <a
+        href="/events"
+        class="mx-auto mb-4 flex w-fit items-center gap-1.5 text-amber-800 underline-offset-2 transition hover:text-amber-900 hover:underline"
+      >
+        <LuArrowLeft class="size-4" stroke-width={3} />
+        <span class="font-semibold">Back to events</span>
+      </a>
+      <h1 class="font-satoshi text-5xl font-black tracking-tighter sm:text-6xl">
+        {event.data.title}
+      </h1>
+      <p
+        class="mx-auto mt-4 max-w-3xl text-lg leading-normal text-pretty sm:text-xl"
+      >
+        {event.data.description}
+      </p>
     </div>
-    <h1 class="font-satoshi text-4xl font-black tracking-tighter sm:text-5xl">
-      {event.data.title}
-    </h1>
-    <p
-      class="mt-4 max-w-3xl text-lg leading-normal text-pretty max-lg:mx-auto sm:text-lg lg:text-xl"
-    >
-      {event.data.description}
-    </p>
-    {
-      /* <p class="mt-2 text-sm text-neutral-600 sm:text-base">
-      {dayjs(event.data.startDate).format("MMMM YYYY")}
-    </p> */
-    }
-  </Header>
+  </div>
 
-  <div class="mx-auto max-w-7xl space-y-12 p-8">
-    <div class="flex gap-8 max-lg:flex-col">
-      <div class="flex-none lg:w-72">
-        <Image
-          src={event.data.logo}
-          alt=""
-          layout="constrained"
-          class="mb-8 h-auto max-h-24 w-max max-w-[min(calc(var(--spacing)_*_48),100%)] drop-shadow-md max-lg:hidden"
-        />
-
-        <div class="mt-4 grid grid-cols-1 gap-4 sm:max-lg:grid-cols-2">
-          <div>
-            <p class="font-semibold sm:text-lg">Date</p>
-            <p class="mt-1 text-neutral-600">
-              {formatDates(event.data.startDate, event.data.endDate)}
-            </p>
+  <div class="mx-auto flex max-w-7xl gap-x-8 gap-y-6 p-8 max-lg:flex-col">
+    <div class="min-w-0 flex-1">
+      {
+        event.body && (
+          <div class="prose prose-neutral sm:prose-lg lg:prose-xl max-w-none !leading-relaxed">
+            <Content />
           </div>
-          <div>
-            <p class="font-semibold sm:text-lg">Sponsors</p>
-            <div class="mt-1 flex flex-wrap gap-x-4 gap-y-1 lg:hidden">
-              {
-                partners.map((partner) => (
-                  <a
-                    href={partner.data.url}
-                    target="_blank"
-                    class="group grid flex-none place-items-center transition duration-200 hover:grayscale-0 hover:duration-300 pointer-fine:grayscale"
-                  >
+        )
+      }
+      <div class="mt-6 aspect-video">
+        <ImageCarousel images={event.data.images} client:idle />
+      </div>
+    </div>
+    <div
+      class="grid h-fit w-full flex-none grid-cols-1 gap-4 rounded-lg border border-neutral-300 bg-neutral-50 p-6 sm:max-lg:grid-cols-2 lg:max-w-80"
+    >
+      <Image
+        src={event.data.logo}
+        alt=""
+        layout="constrained"
+        class="h-auto max-h-24 w-max max-w-[min(calc(var(--spacing)_*_48),100%)] drop-shadow-md"
+      />
+      <div class="space-y-4">
+        <div>
+          <p class="font-semibold sm:text-lg">Date</p>
+          <p class="mt-1 text-neutral-600">
+            {formatDates(event.data.startDate, event.data.endDate)}
+          </p>
+        </div>
+        <div>
+          <p class="font-semibold sm:text-lg">Sponsors</p>
+          <div
+            class="mt-2 grid grid-cols-2 border-t border-l border-neutral-300"
+          >
+            {
+              partners.map((partner) => (
+                <a
+                  href={partner.data.url}
+                  target="_blank"
+                  class="group flex-none border-r border-b border-inherit transition hover:bg-white"
+                >
+                  <div class="grid h-full place-items-center py-2 ring-neutral-400 transition group-hover:ring-1">
                     <Image
                       src={partner.data.logo}
                       alt={partner.data.title}
-                      class="h-12 w-auto opacity-50 transition duration-200 group-hover:scale-105 group-hover:opacity-100 group-hover:duration-300"
+                      class="h-12 w-auto opacity-50 transition group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 pointer-fine:grayscale"
                     />
-                  </a>
-                ))
-              }
-            </div>
-            <div
-              class="mt-2 grid grid-cols-2 border-t border-l border-neutral-300 max-lg:hidden"
+                  </div>
+                </a>
+              ))
+            }
+            <a
+              href="/donate"
+              class="group flex-none border-r border-b border-inherit transition odd:col-span-2 hover:bg-white"
             >
-              {
-                partners.map((partner) => (
-                  <a
-                    href={partner.data.url}
-                    target="_blank"
-                    class="group grid flex-none place-items-center border-r border-b border-inherit py-2 transition duration-200 hover:bg-white hover:grayscale-0 hover:duration-300 pointer-fine:grayscale"
-                  >
-                    <Image
-                      src={partner.data.logo}
-                      alt={partner.data.title}
-                      class="h-12 w-auto opacity-50 transition duration-200 group-hover:scale-105 group-hover:opacity-100 group-hover:duration-300"
-                    />
-                  </a>
-                ))
-              }
-              <a
-                href="/donate"
-                class="group grid flex-none place-items-center border-r border-b border-inherit py-4 transition duration-200 odd:col-span-2 hover:bg-white hover:duration-300"
+              <div
+                class="grid h-full place-items-center py-4 ring-neutral-400 transition group-hover:ring-1"
               >
                 <span
                   class="text-sm font-semibold text-red-700 transition duration-200 group-hover:text-red-900 group-hover:duration-300"
                 >
                   Sponsor us
                 </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="border-neutral-300 max-lg:border-b lg:border-r"></div>
-      <div class="min-w-0 flex-1">
-        <div class="space-y-8">
-          {
-            event.body && (
-              <div class="prose prose-neutral sm:prose-lg lg:prose-xl max-w-none !leading-relaxed">
-                <Content />
               </div>
-            )
-          }
-          <div>
-            <h2 class="font-satoshi text-xl font-bold sm:text-2xl">Photos</h2>
-            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {
-                event.data.images.map((img) => (
-                  <div>
-                    <Image
-                      src={img}
-                      alt=""
-                      class="aspect-video w-full rounded-lg border border-neutral-300 object-cover shadow-sm"
-                    />
-                  </div>
-                ))
-              }
-            </div>
+            </a>
           </div>
         </div>
       </div>

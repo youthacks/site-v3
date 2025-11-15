@@ -14,6 +14,7 @@
     "astro": "^5.13.5",
     "cva": "1.0.0-beta.4",
     "dayjs": "^1.11.18",
+    "embla-carousel": "^8.6.0",
     "motion": "^12.23.12",
     "svelte": "^5.38.6",
     "svelte-portal": "^2.2.1",

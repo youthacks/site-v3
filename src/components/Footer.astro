@@ -6,12 +6,13 @@ import SiInstagram from "~/assets/icons/SiInstagram.svg";
 import SiTiktok from "~/assets/icons/SiTiktok.svg";
 import SiGithub from "~/assets/icons/SiGithub.svg";
 
-import ContactButton from "~/components/header/ContactModal.svelte";
+import ContactButton from "~/components/navbar/ContactModal.svelte";
 
 const FOOTER_LINKS = [
   { label: "Our events", href: "/events" },
-  { label: "Info for parents", href: "/parents" },
+  { label: "About us", href: "/about" },
   { label: "Support us", href: "/donate" },
+  { label: "Info for parents", href: "/parents" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -73,13 +74,11 @@ const FOOTER_SOCIALS = [
         </div>
       </div>
     </div>
-    <div
-      class="mt-8 flex gap-x-4 gap-y-1 border-t border-neutral-800 pt-4 max-lg:flex-col lg:justify-between"
-    >
+    <div class="mt-8 border-t border-neutral-800 pt-4">
       <div class="text-sm text-neutral-500 italic">
         <p>© 2025 Youthacks. Registering for UK charity status.</p>
       </div>
-      <div class="text-sm text-neutral-500 italic lg:text-right">
+      <div class="mt-2 text-xs text-neutral-500 italic">
         <p>
           made by <a
             href="https://gideon.sh"
@@ -88,7 +87,17 @@ const FOOTER_SOCIALS = [
             >heygideon</a
           > with the awesome Youthacks team
         </p>
-        <p>photography by William Wallace, Jacob and Edward Hesketh</p>
+        <p class="mt-0.5">
+          photography by William Wallace, Jacob and Edward Hesketh
+        </p>
+        <p class="mt-2">
+          this website is <a
+            href="https://github.com/youthacks/site-v3"
+            target="_blank"
+            class="underline underline-offset-2 transition hover:text-white"
+            >open source!</a
+          >
+        </p>
       </div>
     </div>
   </div>

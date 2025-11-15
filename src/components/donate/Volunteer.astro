@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+import dayjs from "~/lib/dayjs";
+import { formatDates } from "~/lib/events";
+
+const events = await getCollection("events");
+const nextEvent = events
+  .filter((item) => dayjs(item.data.startDate).isAfter(dayjs()))
+  .sort((a, b) =>
+    dayjs(a.data.startDate).isAfter(dayjs(b.data.startDate)) ? 1 : -1,
+  )[0];
+---
+
+<section>
+  <div class="mx-auto max-w-7xl p-8 text-center">
+    <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Volunteer</h2>
+    <div
+      class="mx-auto mt-4 max-w-3xl leading-normal text-neutral-800 sm:text-lg lg:text-xl"
+    >
+      <p class="text-pretty">
+        We're looking for passionate volunteers to help with our next events. If
+        you're over 18, can pass an enhanced DBS check, and love helping young
+        people, we'd love to hear from you!
+      </p>
+
+      <a
+        href="mailto:hello@youthacks.org"
+        class="group mx-auto mt-1 flex w-fit items-center gap-2 font-semibold text-cyan-800 underline-offset-2 transition hover:text-cyan-900 hover:underline"
+      >
+        <span>hello@youthacks.org</span>
+        <LuArrowRight
+          class="size-3 transition-transform group-hover:translate-x-0.5 sm:size-4"
+          stroke-width={3}
+        />
+      </a>
+      {
+        nextEvent && (
+          <p class="mt-3 text-sm text-neutral-600 sm:text-base">
+            <span class="font-semibold">Coming up:</span>
+            {nextEvent.data.title},{" "}
+            {formatDates(nextEvent.data.startDate, nextEvent.data.endDate)}
+          </p>
+        )
+      }
+    </div>
+  </div>
+</section>

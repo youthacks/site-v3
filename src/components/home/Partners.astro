@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import PartnersMarquee from "~/components/partners/PartnersMarquee.svelte";
+
+const partners = await getCollection(
+  "partners",
+  (partner) => !partner.data.hidden,
+);
+---
+
+<section>
+  <div class="mx-auto max-w-7xl p-8 text-center">
+    <h2 class="font-satoshi text-2xl font-bold sm:text-3xl">Past sponsors</h2>
+    <p class="mt-1.5 text-pretty text-neutral-600 sm:mt-2 sm:text-lg">
+      Amazing organisations we've worked with to bring our events to life.
+    </p>
+    <div class="mt-4">
+      <PartnersMarquee partners={partners} client:idle />
+    </div>
+  </div>
+</section>
