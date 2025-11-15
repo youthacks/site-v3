@@ -1,10 +1,10 @@
 # Youthacks website (v3)
 
-This is the (to-be) website for Youthacks. We support and run student-led hackathons.
+This is the brand-new website for Youthacks. We support and run student-led hackathons.
 
-You can find it ✨ [**right here**](https://site-v3-lyart.vercel.app/) ✨ - go check it out!
+You can find it ✨ [**right here**](https://youthacks.org/) ✨ - go check it out!
 
-<img width="2492" height="1771" alt="A screenshot of the website" src="https://github.com/user-attachments/assets/e6b43c69-0a31-4c8b-bf5a-f89ed8bfb153" />
+<img width="2492" height="1771" alt="site v3 screenshot new" src="https://github.com/user-attachments/assets/2097a321-ee18-4ed1-8aaf-fdd42826b6a1" />
 
 ## 🚀 Contribute
 
