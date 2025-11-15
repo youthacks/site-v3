@@ -12,6 +12,7 @@ const events = defineCollection({
         endDate: z.coerce.date().optional(),
         with: z.string().optional(),
         locations: z.array(z.string()).min(1),
+        isHackClubEvent: z.boolean().default(false),
 
         logo: image(),
         artwork: image(),

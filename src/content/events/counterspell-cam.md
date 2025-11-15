@@ -5,6 +5,7 @@ startDate: 2024-11-23
 with: Hack Club + Raspberry Pi Foundation
 locations:
   - Cambridge
+isHackClubEvent: true
 
 logo: ~/assets/images/counterspell-cam/logo.png
 artwork: ~/assets/images/counterspell-cam/banner.png
@@ -19,7 +20,6 @@ images:
   - ~/assets/events/counterspell-cam-1.jpg
 
 partners:
-  - hackclub
   - raspberry-pi
   - aromi-cucina
   - fireaway
@@ -31,4 +31,4 @@ We were super excited to run Counterspell Cambridge, an all-day game jam, in Nov
 Teams of teenagers worked together over 12 hours to make new and interesting games, which were then shared with and voted on by everyone who took part.
 While this is not a lot of time to make a full game (we know), we were still blown away by what everyone managed to create!
 
-This was part of Counterspell, a global event run by Hack Club, with teens in 50+ cities worldwide all taking part in one weekend.
+This was part of Counterspell, a global event run by Hack Club, with teens in over 50 cities worldwide all taking part in one weekend.

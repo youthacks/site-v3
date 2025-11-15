@@ -8,12 +8,6 @@
   logo: ~/assets/logos/partners/github.png
   url: https://www.github.com/
 
-- id: hackclub
-  title: "Hack Club"
-  logo: ~/assets/logos/partners/hackclub.png
-  url: https://www.hackclub.com/
-  hidden: true
-
 - id: ada
   title: "Ada"
   logo: ~/assets/logos/partners/ada.png

@@ -9,6 +9,8 @@ import HeroBackground from "~/components/hero/Background.svelte";
 
 import LuArrowLeft from "~/assets/icons/LuArrowLeft.svg";
 
+import hackClub from "~/assets/logos/partners/hackclub.png";
+
 import Navbar from "~/components/navbar/Navbar.svelte";
 import Footer from "~/components/Footer.astro";
 
@@ -107,6 +109,26 @@ function formatLocations(locations: string[]) {
             {formatLocations(event.data.locations)}
           </p>
         </div>
+        {
+          event.data.isHackClubEvent && (
+            <div>
+              <p class="font-semibold sm:text-lg">A Hack Club event</p>
+              <a
+                href="https://www.hackclub.com/"
+                target="_blank"
+                class="group mt-2 block flex-none border border-neutral-300 transition hover:border-neutral-400 hover:bg-white"
+              >
+                <div class="grid h-full place-items-center py-2">
+                  <Image
+                    src={hackClub}
+                    alt="Hack Club"
+                    class="h-12 w-auto opacity-50 transition group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 pointer-fine:grayscale"
+                  />
+                </div>
+              </a>
+            </div>
+          )
+        }
         <div>
           <p class="font-semibold sm:text-lg">Sponsors</p>
           <div
