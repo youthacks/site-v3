@@ -26,6 +26,6 @@ partners:
 ---
 
 We were super excited to run Scrapyard Cambridge and Scrapyard London in March 2025. These were all-day hackathons held at Raspberry Pi HQ in Cambridge and tldraw HQ in London.
-Teams of teenagers worked together over around 8 hours to make the 'scrappiest projects' they could - silly, wacky, whatever they can dream of.
+Teams of teenagers worked together over around 8 hours to make the 'scrappiest projects' they could - silly, wacky, whatever they could dream of.
 
 This was part of Scrapyard, a global event run by Hack Club, with teens in 60+ cities worldwide all taking part in one weekend.
