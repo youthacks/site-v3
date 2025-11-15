@@ -1,5 +1,7 @@
 ---
-import Font from "astro/components/Font.astro";
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+
 import "../styles/global.css";
 
 interface Props {
@@ -17,16 +19,18 @@ const { pageTitle, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <Font cssVariable="--font-sans" preload />
-    <Font cssVariable="--font-satoshi" preload />
-    <Font cssVariable="--font-cursive" />
-
     <title>{pageTitle ? `${pageTitle} | Youthacks` : "Youthacks"}</title>
     <meta
       name="description"
       content={description ||
         "We support and run hackathons for teens, and create safe spaces where young coders can thrive, together."}
     />
+
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-satoshi" preload />
+    <Font cssVariable="--font-cursive" />
+
+    <ClientRouter />
   </head>
   <body>
     <slot />
