@@ -31,6 +31,7 @@ partners:
   - ada
   - yubico
   - aromi-cucina
+  - fireaway
   - sparta
   - brighton-youth
   - cardiff-youth
