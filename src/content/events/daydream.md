@@ -36,7 +36,7 @@ partners:
   - cardiff-youth
 ---
 
-We were thrilled to run Daydream in the UK in March 2025. These were all-day hackathons and held in London, Cambridge, Brighton, Manchester and South Wales.
+We were thrilled to run Daydream in the UK in September 2025. These were all-day hackathons and held in London, Cambridge, Brighton, Manchester and South Wales.
 Teams of teenagers worked together over around 8 hours to make a new game from scratch, with the theme _'sacrifices must be made'_. Over 100 people attended in total, and every group shipped a game by the end of the day - in return, we gave out free food, prizes, stickers, and exclusive t-shirts.
 
 This was part of Daydream, a global game jam run by Hack Club, with teens in 100+ cities worldwide all taking part + making a game in one weekend.
