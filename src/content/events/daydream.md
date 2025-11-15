@@ -30,6 +30,15 @@ images:
   - ~/assets/events/daydream/daydream-lon-7.jpg
   - ~/assets/events/daydream/daydream-lon-8.jpg
   - ~/assets/events/daydream/daydream-lon-9.jpg
+  - ~/assets/events/daydream/daydream-sw-1.jpg
+  - ~/assets/events/daydream/daydream-sw-2.jpg
+  - ~/assets/events/daydream/daydream-sw-3.jpg
+  - ~/assets/events/daydream/daydream-sw-4.jpg
+  - ~/assets/events/daydream/daydream-sw-5.jpg
+  - ~/assets/events/daydream/daydream-sw-6.jpg
+  - ~/assets/events/daydream/daydream-sw-7.jpg
+  # - ~/assets/events/daydream/daydream-sw-8.jpg
+  - ~/assets/events/daydream/daydream-sw-9.jpg
 partners:
   - hackclub
   - github

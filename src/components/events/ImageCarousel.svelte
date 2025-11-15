@@ -42,14 +42,10 @@
     class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/50 via-transparent p-2 text-white"
   >
     <div class="flex items-center pl-2">
-      {#each { length: images.length } as _, i}
-        <div
-          class={[
-            "mr-1.5 size-2 rounded-full bg-white transition",
-            i !== index && "opacity-50",
-          ]}
-        ></div>
-      {/each}
+      <p class="text-sm">
+        <span class="font-semibold">{index + 1}</span>
+        <span class="text-white/75">of {images.length}</span>
+      </p>
       <div class="flex-1"></div>
       <div
         class="flex items-center overflow-clip rounded-sm bg-black/20 backdrop-blur-sm"
