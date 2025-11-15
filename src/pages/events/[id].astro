@@ -36,7 +36,7 @@ const partners = await getEntries(event.data.partners).then((items) =>
 const { Content } = await render(event);
 ---
 
-<Layout pageTitle="Home">
+<Layout pageTitle={event.data.title}>
   <Navbar client:load />
 
   <div class="relative isolate bg-amber-200 pt-20">
