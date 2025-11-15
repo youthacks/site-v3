@@ -16,7 +16,6 @@ import Footer from "~/components/Footer.astro";
 import ImageCarousel from "~/components/events/ImageCarousel.svelte";
 
 import { formatDates } from "~/lib/events";
-import dayjs from "~/lib/dayjs";
 
 export async function getStaticPaths() {
   const events = await getCollection("events", (i) => i.data.concluded);
@@ -52,31 +51,6 @@ const tag = cva({
 ---
 
 <Layout pageTitle="Home">
-  <!-- <Header color={event.data.colors.main} coverImage={event.data.images[0]}>
-    <div
-      class={tag({
-        color: event.data.colors.main,
-        class:
-          "mb-4 max-lg:mx-auto w-fit px-2 rounded-full font-semibold uppercase",
-      })}
-    >
-      Event
-    </div>
-    <h1 class="font-satoshi text-4xl font-black tracking-tighter sm:text-5xl">
-      {event.data.title}
-    </h1>
-    <p
-      class="mt-4 max-w-3xl text-lg leading-normal text-pretty max-lg:mx-auto sm:text-lg lg:text-xl"
-    >
-      {event.data.description}
-    </p>
-    {
-      /* <p class="mt-2 text-sm text-neutral-600 sm:text-base">
-      {dayjs(event.data.startDate).format("MMMM YYYY")}
-    </p> */ 
-    }
-  </Header> -->
-
   <Navbar client:load />
 
   <div class="relative isolate bg-amber-200 pt-20">
