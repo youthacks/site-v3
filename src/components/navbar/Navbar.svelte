@@ -71,7 +71,14 @@
       ]}
     >
       <a href="/">
-        <img src={logo} alt="" class="h-7 w-auto" />
+        <img
+          src={logo}
+          alt=""
+          class="h-7 w-auto"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+        />
         <span class="sr-only">Home</span>
       </a>
       <div class="flex-1"></div>
