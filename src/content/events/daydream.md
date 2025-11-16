@@ -58,6 +58,12 @@ images:
   #   caption: Daydream South Wales
   - src: ~/assets/events/daydream/daydream-sw-9.jpg
     caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-bri-1.jpg
+    caption: Daydream Brighton
+  - src: ~/assets/events/daydream/daydream-bri-2.jpg
+    caption: Daydream Brighton
+  - src: ~/assets/events/daydream/daydream-bri-3.jpg
+    caption: Daydream Brighton
 partners:
   - github
   - raspberry-pi
