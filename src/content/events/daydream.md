@@ -22,24 +22,42 @@ colors:
 
 concluded: true
 images:
-  - ~/assets/events/daydream/daydream-lon-1.jpg
-  - ~/assets/events/daydream/daydream-lon-2.jpg
-  - ~/assets/events/daydream/daydream-lon-3.jpg
-  - ~/assets/events/daydream/daydream-lon-4.jpg
-  - ~/assets/events/daydream/daydream-lon-5.jpg
-  - ~/assets/events/daydream/daydream-lon-6.jpg
-  - ~/assets/events/daydream/daydream-lon-7.jpg
-  - ~/assets/events/daydream/daydream-lon-8.jpg
-  - ~/assets/events/daydream/daydream-lon-9.jpg
-  - ~/assets/events/daydream/daydream-sw-1.jpg
-  - ~/assets/events/daydream/daydream-sw-2.jpg
-  - ~/assets/events/daydream/daydream-sw-3.jpg
-  - ~/assets/events/daydream/daydream-sw-4.jpg
-  - ~/assets/events/daydream/daydream-sw-5.jpg
-  - ~/assets/events/daydream/daydream-sw-6.jpg
-  - ~/assets/events/daydream/daydream-sw-7.jpg
-  # - ~/assets/events/daydream/daydream-sw-8.jpg
-  - ~/assets/events/daydream/daydream-sw-9.jpg
+  - src: ~/assets/events/daydream/daydream-lon-1.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-2.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-3.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-4.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-5.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-6.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-7.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-8.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-lon-9.jpg
+    caption: Daydream London
+  - src: ~/assets/events/daydream/daydream-sw-1.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-2.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-3.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-4.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-5.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-6.jpg
+    caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-7.jpg
+    caption: Daydream South Wales
+  # - src: ~/assets/events/daydream/daydream-sw-8.jpg
+  #   caption: Daydream South Wales
+  - src: ~/assets/events/daydream/daydream-sw-9.jpg
+    caption: Daydream South Wales
 partners:
   - github
   - raspberry-pi

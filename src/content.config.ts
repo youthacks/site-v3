@@ -38,7 +38,14 @@ const events = defineCollection({
           }),
           z.object({
             concluded: z.literal(true),
-            images: z.array(image()).min(1),
+            images: z
+              .array(
+                z.object({
+                  src: image(),
+                  caption: z.string().optional(),
+                }),
+              )
+              .min(1),
             partners: z.array(reference("partners")).min(1),
           }),
         ]),

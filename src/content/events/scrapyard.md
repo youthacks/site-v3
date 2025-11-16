@@ -18,9 +18,12 @@ colors:
 
 concluded: true
 images:
-  - ~/assets/events/scrapyard-cam-1.jpg
-  - ~/assets/events/scrapyard-cam-2.jpg
-  - ~/assets/events/scrapyard-lon-1.jpg
+  - src: ~/assets/events/scrapyard-cam-1.jpg
+    caption: Scrapyard Cambridge
+  - src: ~/assets/events/scrapyard-cam-2.jpg
+    caption: Scrapyard Cambridge
+  - src: ~/assets/events/scrapyard-lon-1.jpg
+    caption: Scrapyard London
 
 partners:
   - raspberry-pi

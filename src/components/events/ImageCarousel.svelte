@@ -1,11 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import EmblaCarousel, { type EmblaCarouselType } from "embla-carousel";
+  import type { InferEntrySchema } from "astro:content";
   import type { ImageMetadata } from "node_modules/astro/dist/assets/types";
   import LuChevronLeft from "~/assets/icons/LuChevronLeft.svelte";
   import LuChevronRight from "~/assets/icons/LuChevronRight.svelte";
 
-  const { images }: { images: ImageMetadata[] } = $props();
+  type Image = (InferEntrySchema<"events"> & {
+    concluded: true;
+  })["images"][number];
+
+  const { images }: { images: Image[] } = $props();
 
   let emblaNode: HTMLElement;
   let embla: EmblaCarouselType | null = null;
@@ -34,37 +39,37 @@
   class="relative size-full overflow-clip rounded-lg bg-neutral-50 shadow-sm contain-size select-none"
 >
   <div class="flex h-full">
-    {#each images as image}
-      <img src={image.src} alt="" class="h-full flex-[0_0_100%] object-cover" />
+    {#each images as { src }}
+      <img src={src.src} alt="" class="h-full flex-[0_0_100%] object-cover" />
     {/each}
   </div>
   <div
-    class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/50 via-transparent p-2 text-white"
+    class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/50 via-transparent p-4 text-white"
   >
-    <div class="flex items-center pl-2">
-      <p class="text-sm">
-        <span class="font-semibold">{index + 1}</span>
-        <span class="text-white/75">of {images.length}</span>
-      </p>
-      <div class="flex-1"></div>
-      <div
-        class="flex items-center overflow-clip rounded-sm bg-black/20 backdrop-blur-sm"
-      >
-        <button
-          onclick={() => embla?.scrollPrev()}
-          class="grid size-8 place-items-center transition hover:bg-white/20"
-        >
-          <LuChevronLeft stroke-width={3} class="size-4 stroke-white" />
-          <span class="sr-only">Previous</span>
-        </button>
-        <button
-          onclick={() => embla?.scrollNext()}
-          class="grid size-8 place-items-center transition hover:bg-white/20"
-        >
-          <LuChevronRight stroke-width={3} class="size-4 stroke-white" />
-          <span class="sr-only">Next</span>
-        </button>
+    <div class="flex items-end gap-2">
+      <div class="-mb-1">
+        <p class="text-sm font-semibold">
+          {images[index].caption}
+        </p>
+        <p class="text-sm text-white/75">
+          {index + 1} of {images.length}
+        </p>
       </div>
+      <div class="flex-1"></div>
+      <button
+        onclick={() => embla?.scrollPrev()}
+        class="grid size-8 place-items-center rounded-full bg-black/50 backdrop-blur-sm transition hover:bg-white/20"
+      >
+        <LuChevronLeft stroke-width={3} class="size-4 stroke-white" />
+        <span class="sr-only">Previous</span>
+      </button>
+      <button
+        onclick={() => embla?.scrollNext()}
+        class="grid size-8 place-items-center rounded-full bg-black/50 backdrop-blur-sm transition hover:bg-white/20"
+      >
+        <LuChevronRight stroke-width={3} class="size-4 stroke-white" />
+        <span class="sr-only">Next</span>
+      </button>
     </div>
   </div>
 </div>

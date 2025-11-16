@@ -17,7 +17,7 @@ colors:
 
 concluded: true
 images:
-  - ~/assets/events/counterspell-cam-1.jpg
+  - src: ~/assets/events/counterspell-cam-1.jpg
 
 partners:
   - raspberry-pi

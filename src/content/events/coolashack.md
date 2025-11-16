@@ -16,13 +16,13 @@ colors:
 
 concluded: true
 images:
-  - ~/assets/events/coolashack-1.jpg
-  - ~/assets/events/coolashack-2.jpg
-  - ~/assets/events/coolashack-3.jpg
-  - ~/assets/events/coolashack-4.jpg
-  - ~/assets/events/coolashack-5.jpg
-  - ~/assets/events/coolashack-6.jpg
-  - ~/assets/events/coolashack-7.jpg
+  - src: ~/assets/events/coolashack-1.jpg
+  - src: ~/assets/events/coolashack-2.jpg
+  - src: ~/assets/events/coolashack-3.jpg
+  - src: ~/assets/events/coolashack-4.jpg
+  - src: ~/assets/events/coolashack-5.jpg
+  - src: ~/assets/events/coolashack-6.jpg
+  - src: ~/assets/events/coolashack-7.jpg
 partners:
   - raspberry-pi
   - github
