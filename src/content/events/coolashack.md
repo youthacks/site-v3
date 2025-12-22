@@ -1,7 +1,7 @@
 ---
 title: Cool As Hack
 description: An all-day hackathon at Raspberry Pi Foundation HQ, where teens worked together to make novel and interesting projects. Part of Coolest Projects, an annual global showcase for young people.
-startDate: 2025-04-25
+startDate: 2025-05-24
 with: Raspberry Pi Foundation
 locations:
   - Cambridge
