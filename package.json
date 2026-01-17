@@ -9,25 +9,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.1.0",
-    "@tailwindcss/vite": "^4.1.12",
-    "astro": "^5.13.5",
+    "@astrojs/svelte": "^7.2.5",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.11",
     "cva": "1.0.0-beta.4",
-    "dayjs": "^1.11.18",
+    "dayjs": "^1.11.19",
     "embla-carousel": "^8.6.0",
-    "motion": "^12.23.12",
-    "svelte": "^5.38.6",
+    "motion": "^12.26.2",
+    "svelte": "^5.46.4",
     "svelte-portal": "^2.2.1",
-    "tailwindcss": "^4.1.12",
-    "typescript": "^5.9.2"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "prettier": "^3.6.2",
+    "prettier": "^3.8.0",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "sharp": "^0.34.3"
+    "prettier-plugin-svelte": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "sharp": "^0.34.5"
   }
 }
