@@ -6,13 +6,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sanity:extract": "sanity schema extract",
+    "sanity:typegen": "sanity typegen generate"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/svelte": "^7.2.5",
     "@sanity/astro": "^3.2.11",
     "@sanity/client": "^7.14.1",
+    "@sanity/image-url": "^2.0.3",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
@@ -20,6 +23,7 @@
     "cva": "1.0.0-beta.4",
     "dayjs": "^1.11.19",
     "embla-carousel": "^8.6.0",
+    "groq": "^5.6.0",
     "motion": "^12.26.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
