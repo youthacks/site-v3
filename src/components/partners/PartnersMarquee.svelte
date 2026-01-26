@@ -1,9 +1,11 @@
 <script lang="ts">
-  import type { CollectionEntry } from "astro:content";
   import { onMount } from "svelte";
   import { animate } from "motion";
+  import type { SponsorsQueryResult } from "sanity.types";
+  import { imageUrl } from "~/lib/image";
+  import { Image } from "astro:assets";
 
-  const { partners }: { partners: CollectionEntry<"partners">[] } = $props();
+  const { sponsors }: { sponsors: SponsorsQueryResult } = $props();
 
   let outerEl: HTMLDivElement;
   let offsetWidth = $state<number>();
@@ -18,7 +20,7 @@
         x: [-0, -offsetWidth],
       },
       {
-        duration: 6 * partners.length,
+        duration: 6 * sponsors.length,
         repeat: Infinity,
         ease: "linear",
       },
@@ -50,9 +52,9 @@
 </div>
 
 {#snippet list()}
-  {#each partners as partner}
+  {#each sponsors as partner}
     <a
-      href={partner.data.url}
+      href={partner.url}
       target="_blank"
       onmouseenter={onHover}
       onmouseleave={onLeave}
@@ -60,11 +62,11 @@
       class="mr-4 flex-none transition duration-200 hover:scale-105 hover:opacity-100 hover:grayscale-0 hover:duration-300 pointer-fine:opacity-50 pointer-fine:grayscale"
     >
       <img
-        src={partner.data.logo.src}
-        alt={partner.data.title}
-        width={partner.data.logo.width}
-        height={partner.data.logo.height}
-        class="h-16 w-auto"
+        src={imageUrl.image(partner.image!).height(64).url()}
+        alt={partner.title}
+        width={128}
+        height={64}
+        class="h-16 w-auto object-contain"
         loading="lazy"
         decoding="async"
       />
