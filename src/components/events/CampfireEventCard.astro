@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import banner from "~/assets/images/campfire/banner.png";
+import bannerSm from "~/assets/images/campfire/banner-sm.png";
+---
+
+<a
+  href="https://campfire.hackclub.com"
+  target="_blank"
+  class="block overflow-clip rounded-xl border border-neutral-300 bg-white shadow-sm"
+>
+  <Image src={banner} alt="" class="w-full max-md:hidden" />
+  <Image src={bannerSm} alt="" class="w-full md:hidden" />
+  <span class="sr-only">Sign up for Campfire</span>
+</a>

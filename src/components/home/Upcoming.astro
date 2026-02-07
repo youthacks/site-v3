@@ -6,6 +6,7 @@ import EventCard from "~/components/events/EventCard.astro";
 import Empty from "~/components/events/Empty.astro";
 
 import LuArrowRight from "~/assets/icons/LuArrowRight.svg";
+import CampfireEventCard from "../events/CampfireEventCard.astro";
 
 interface Props {
   hideViewMore?: boolean;
@@ -25,8 +26,9 @@ const futureEvents = await getCollection("events", (item) =>
 <section id="events">
   <div class="mx-auto max-w-7xl p-8">
     <div class="space-y-6">
-      {futureEvents.map((event) => <EventCard item={event} />)}
-      {futureEvents.length === 0 && <Empty color={color} />}
+      <!-- {futureEvents.map((event) => <EventCard item={event} />)} -->
+      <!-- {futureEvents.length === 0 && <Empty color={color} />} -->
+      <CampfireEventCard />
     </div>
     {
       !hideViewMore && (
