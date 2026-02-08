@@ -5,6 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 import svelte from "@astrojs/svelte";
 
+import sanity from "@sanity/astro";
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   redirects: {
@@ -72,5 +75,15 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [svelte()],
+  integrations: [
+    svelte(),
+    sanity({
+      projectId: "payz0nck",
+      dataset: "production",
+      // Set useCdn to false if you're building statically.
+      useCdn: false,
+      studioBasePath: "/sanity",
+    }),
+    react(),
+  ],
 });
