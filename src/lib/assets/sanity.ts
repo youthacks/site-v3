@@ -17,9 +17,7 @@ import type { HTMLImgAttributes } from "svelte/elements";
 import imageBuilder from "~/lib/imageBuilder";
 
 export type SanityImageSource =
-  | SanityAsset
-  | SanityReference
-  | SanityImageObject;
+  SanityAsset | SanityReference | SanityImageObject;
 
 export type SanityImageTransform = {
   src: SanityImageSource;
@@ -92,6 +90,7 @@ export function getSanityImage(options: SanityImageTransform) {
   const instance = imageBuilder.image(options.src).withOptions({
     source: options.src,
     quality: options.quality || 80,
+    auto: "format",
     format: options.format,
   });
   const originalDimensions = getSanityImageData(options.src);
