@@ -66,5 +66,5 @@ export default defineConfig({
     }),
   ],
 
-  adapter: vercel(),
+  adapter: node({ mode: "standalone" }),
 });
